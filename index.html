@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graffiti Debug</title>
+    <link rel="stylesheet" href="drop-in.css" />
+  </head>
+
+  <body style="padding: 2rem">
+    <style>
+      .demo-box {
+        background: var(--tint-or-shade);
+        padding: 1rem;
+        border-radius: var(--br-s);
+        border: 1px solid var(--tint-or-shade-harder);
+      }
+      .demo-section {
+        margin-block: 3rem;
+      }
+    </style>
+
+    <h1>Graffiti</h1>
+
+    <section>
+      <h2>Install</h2>
+      <p class="code">npm install @drop-in/graffiti</p>
+      <p>Then drop in to your project.</p>
+      <p class="code">import @drop-in/graffiti</p>
+      <p>or</p>
+      <p>
+        Just copy and paste from
+        <a href="https://github.com/drop-in/graffiti">the GitHub repository</a>.
+      </p>
+    </section>
+
+    <!-- Typography Demos -->
+    <section class="demo-section">
+      <h2>Typography Scale</h2>
+      <h1 class="fs-xxxl">Extra Large</h1>
+      <h1>H1 - Large Heading</h1>
+      <h2>H2 - Med Heading</h2>
+      <h3>H3 - Small Heading</h3>
+      <h4>H4 - Xtra Small Heading</h4>
+      <h5>H5 - Base Heading</h5>
+      <h6>H6 - Small Text Heading</h6>
+    </section>
+
+    <!-- Layout Card -->
+    <section class="demo-section stack">
+      <h2>.layout-card</h2>
+      <p>Auto-fill responsive card grid</p>
+      <div class="layout-card">
+        <div class="demo-box">Card 1</div>
+        <div class="demo-box">Card 2</div>
+        <div class="demo-box">Card 3</div>
+        <div class="demo-box">Card 4</div>
+      </div>
+    </section>
+
+    <!-- Layout Sidebar -->
+    <section class="demo-section stack">
+      <h2>.layout-sidebar</h2>
+      <p>Sidebar + main content (250px default)</p>
+      <div class="layout-sidebar">
+        <aside class="demo-box">Sidebar</aside>
+        <main class="demo-box">Main Content</main>
+      </div>
+
+      <h3>.layout-sidebar.narrow</h3>
+      <div class="layout-sidebar narrow">
+        <aside class="demo-box">150px Sidebar</aside>
+        <main class="demo-box">Main Content</main>
+      </div>
+
+      <h3>.layout-sidebar.wide</h3>
+      <div class="layout-sidebar wide">
+        <aside class="demo-box">350px Sidebar</aside>
+        <main class="demo-box">Main Content</main>
+      </div>
+
+      <h3>.layout-sidebar.invert</h3>
+      <div class="layout-sidebar invert">
+        <main class="demo-box">Main Content</main>
+        <aside class="demo-box">Sidebar</aside>
+      </div>
+    </section>
+
+    <!-- Layout Split -->
+    <section class="demo-section stack">
+      <h2>.layout-split</h2>
+      <p>50/50 two column layout</p>
+      <div class="layout-split">
+        <div class="demo-box">Left Column</div>
+        <div class="demo-box">Right Column</div>
+      </div>
+
+      <h3>.layout-split.no-stack</h3>
+      <p>Stays side-by-side on mobile</p>
+      <div class="layout-split no-stack">
+        <div class="demo-box">Left</div>
+        <div class="demo-box">Right</div>
+      </div>
+    </section>
+
+    <!-- Layout Three Col -->
+    <section class="demo-section stack">
+      <h2>.layout-three-col</h2>
+      <p>Three equal columns</p>
+      <div class="layout-three-col">
+        <div class="demo-box">Column 1</div>
+        <div class="demo-box">Column 2</div>
+        <div class="demo-box">Column 3</div>
+      </div>
+    </section>
+
+    <!-- Layout Readable -->
+    <section class="demo-section">
+      <h2>.layout-readable</h2>
+      <p>Max-width for optimal readability (default: start-aligned)</p>
+      <div class="layout-readable" style="background: var(--tint-or-shade)">
+        <p>
+          Learning to drop in on a skateboard is an exciting and challenging milestone for any
+          skateboarder. Before attempting to drop in, ensure that you have a solid foundation of
+          basic skateboarding skills.
+        </p>
+      </div>
+
+      <h3>.layout-readable.center</h3>
+      <div class="layout-readable center" style="background: var(--tint-or-shade)">
+        <p>Centered readable content with max-width constraint.</p>
+      </div>
+
+      <h3>.layout-readable.end</h3>
+      <div class="layout-readable end" style="background: var(--tint-or-shade)">
+        <p>End-aligned readable content with max-width constraint.</p>
+      </div>
+
+      <h3>.layout-readable with .full-bleed child</h3>
+      <div class="layout-readable center">
+        <p>Regular readable content...</p>
+        <div class="full-bleed demo-box">Full bleed element breaks out of container!</div>
+        <p>More readable content...</p>
+      </div>
+    </section>
+
+    <!-- Stack -->
+    <section class="demo-section">
+      <h2>.stack</h2>
+      <p>Vertical flexbox stack with gap</p>
+      <div class="stack">
+        <div class="demo-box">Item 1</div>
+        <div class="demo-box">Item 2</div>
+        <div class="demo-box">Item 3</div>
+      </div>
+    </section>
+
+    <!-- Grid Utility -->
+    <section class="demo-section">
+      <h2>.grid</h2>
+      <p>Minimal grid utility (like .flex)</p>
+      <div class="grid" style="grid-template-columns: 200px 1fr 200px">
+        <div class="demo-box">200px</div>
+        <div class="demo-box">Flexible</div>
+        <div class="demo-box">200px</div>
+      </div>
+    </section>
+
+    <!-- Fluid Typography Container -->
+    <section class="demo-section">
+      <h2>.fluid-text-container</h2>
+      <p>Container query based fluid typography (resize to see effect)</p>
+      <div
+        class="fluid-text-container"
+        style="overflow: auto; resize: horizontal; height: auto; border: solid 1px"
+      >
+        <h3>Resize Me!</h3>
+        <p>
+          This text scales based on container width, not viewport width. Drag the bottom-right
+          corner to resize the container and watch the text scale.
+        </p>
+      </div>
+    </section>
+
+    <!-- CSS Variables Reference -->
+    <section class="demo-section stack">
+      <h2>CSS Variables Reference</h2>
+
+      <div class="stack">
+        <h3>Vertical Spacing</h3>
+        <div class="layout-card" style="--min-card-width: 150px">
+          <div class="demo-box" style="padding: var(--vs-s)">--vs-s: 0.5rem</div>
+          <div class="demo-box" style="padding: var(--vs-base)">--vs-base: 1rem</div>
+          <div class="demo-box" style="padding: var(--vs-m)">--vs-m: 1.5rem</div>
+          <div class="demo-box" style="padding: var(--vs-l)">--vs-l: 2rem</div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>Border Radius</h3>
+        <div class="layout-card" style="--min-card-width: 150px">
+          <div class="demo-box" style="border-radius: var(--br-xs)">--br-xs: 2px</div>
+          <div class="demo-box" style="border-radius: var(--br-s)">--br-s: 4px</div>
+          <div class="demo-box" style="border-radius: var(--br-m)">--br-m: 8px</div>
+          <div class="demo-box" style="border-radius: var(--br-l)">--br-l: 16px</div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>Padding</h3>
+        <div class="layout-card" style="--min-card-width: 150px">
+          <div class="demo-box" style="padding: var(--pad-xs)">--pad-xs: 2px</div>
+          <div class="demo-box" style="padding: var(--pad-s)">--pad-s: 6px</div>
+          <div class="demo-box" style="padding: var(--pad-m)">--pad-m: 12px</div>
+          <div class="demo-box" style="padding: var(--pad-l)">--pad-l: 25px</div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>Shadows</h3>
+        <p>Modern layered shadows - subtle in light mode, deeper and more intense in dark mode</p>
+        <div class="layout-card" style="--min-card-width: 200px">
+          <div class="demo-box" style="box-shadow: var(--shadow-1)">--shadow-1<br />Subtle</div>
+          <div class="demo-box" style="box-shadow: var(--shadow-2)">--shadow-2<br />Light lift</div>
+          <div class="demo-box" style="box-shadow: var(--shadow-3)">--shadow-3<br />Moderate</div>
+          <div class="demo-box" style="box-shadow: var(--shadow-4)">--shadow-4<br />Strong</div>
+          <div class="demo-box" style="box-shadow: var(--shadow-5)">--shadow-5<br />Dramatic</div>
+          <div class="demo-box" style="box-shadow: var(--shadow-6)">--shadow-6<br />Maximum</div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>Color Palette</h3>
+        <div class="layout-card" style="--min-card-width: 150px">
+          <div style="background: var(--yellow); padding: 1rem; border-radius: var(--br-s)">
+            --yellow
+          </div>
+          <div style="background: var(--orange); padding: 1rem; border-radius: var(--br-s)">
+            --orange
+          </div>
+          <div
+            style="background: var(--red); color: white; padding: 1rem; border-radius: var(--br-s)"
+          >
+            --red
+          </div>
+          <div
+            style="background: var(--pink); color: white; padding: 1rem; border-radius: var(--br-s)"
+          >
+            --pink
+          </div>
+          <div style="background: var(--teal); padding: 1rem; border-radius: var(--br-s)">
+            --teal
+          </div>
+          <div
+            style="background: var(--blue); color: white; padding: 1rem; border-radius: var(--br-s)"
+          >
+            --blue
+          </div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>Theming Variables</h3>
+        <div class="layout-split">
+          <div class="demo-box" style="background: var(--fg); color: var(--bg)">
+            --fg<br />Foreground color
+          </div>
+          <div class="demo-box" style="background: var(--bg); color: var(--fg)">
+            --bg<br />Background color
+          </div>
+          <div class="demo-box" style="background: var(--tint-or-shade)">
+            --tint-or-shade<br />5% foreground mix
+          </div>
+          <div class="demo-box" style="background: var(--tint-or-shade-harder)">
+            --tint-or-shade-harder<br />10% foreground mix
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
