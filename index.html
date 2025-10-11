@@ -61,6 +61,13 @@
           >Just copy and paste from</a
         >
       </p>
+      <p>
+        <a
+          href="https://raw.githubusercontent.com/stolinski/graffiti/refs/heads/main/llms.txt"
+          >Give you LLM our docs</a
+        >
+      </p>
+
     </section>
 
     <!-- Typography Demos -->
@@ -236,6 +243,113 @@
           <div class="box-1">.box-1<br />Subtle</div>
           <div class="box-2">.box-2<br />Semi Gloss</div>
           <div style="box-shadow: var(--box), var(--shadow-6);">You can make a custom box with CSS variables box-shadow: var(--box), var(--shadow-5);</div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>.button</h3>
+        <p>Button styling for links and non-button elements</p>
+        <div class="flex">
+          <button>Regular Button</button>
+          <a href="#" class="button">Link as Button</a>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>.flex</h3>
+        <p>Display flex with 20px gap</p>
+        <div class="flex" style="background: var(--tint-or-shade); padding: 1rem">
+          <div class="demo-box">Flex Item 1</div>
+          <div class="demo-box">Flex Item 2</div>
+          <div class="demo-box">Flex Item 3</div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>.split</h3>
+        <p>Flex with space-between and top alignment (used in header)</p>
+        <div class="split" style="background: var(--tint-or-shade); padding: 1rem">
+          <div class="demo-box">Left Side</div>
+          <div class="demo-box">Right Side</div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>.readable</h3>
+        <p>Max-width 900px container</p>
+        <div class="readable" style="background: var(--tint-or-shade)">
+          <div class="demo-box">
+            <p>This content is constrained to 900px max-width for optimal readability. Unlike .layout-readable, this doesn't include padding.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>.no-list</h3>
+        <p>Remove list styling (margin, padding, list-style)</p>
+        <div class="layout-split">
+          <div>
+            <h4>Regular List</h4>
+            <ul>
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+            </ul>
+          </div>
+          <div>
+            <h4>With .no-list</h4>
+            <ul class="no-list">
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>.circle</h3>
+        <p>Circular element (default --size: 40px)</p>
+        <div class="flex">
+          <button class="circle">✓</button>
+          <button class="circle" style="--size: 60px">✗</button>
+          <button class="circle" style="--size: 80px">!</button>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>.row</h3>
+        <p>Add vertical margin (--vs-m)</p>
+        <div style="background: var(--tint-or-shade); padding: 1rem">
+          <div class="demo-box">No .row class</div>
+          <div class="demo-box row">With .row class - has margin-block</div>
+          <div class="demo-box">No .row class</div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>.visually-hidden</h3>
+        <p>Hide element visually but keep accessible to screen readers</p>
+        <div class="demo-box">
+          <p>There is hidden text after this colon: <span class="visually-hidden">This text is hidden visually but available to screen readers!</span></p>
+          <p>You can't see it, but it's there for accessibility.</p>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>.fc (Fluid Container)</h3>
+        <p>Makes typography responsive to container width instead of viewport</p>
+        <div class="layout-split">
+          <div class="demo-box">
+            <h4>Regular (viewport-based)</h4>
+            <h2>This heading scales with viewport</h2>
+            <p>Text scales with viewport width</p>
+          </div>
+          <div class="demo-box fc">
+            <h4>With .fc (container-based)</h4>
+            <h2>This heading scales with container</h2>
+            <p>Text scales with this box's width</p>
+          </div>
         </div>
       </div>
 		</section>

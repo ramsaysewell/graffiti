@@ -1,0 +1,222 @@
+# Graffiti CSS Framework
+
+> A minimal CSS framework with fluid typography, responsive layouts, and utility classes
+
+## CSS Variables
+
+### Typography & Fluid System
+- `--fl`: Fluid level (-1 to 6) - Set on elements to control fluid typography scale
+- `--font-sans`: System font stack
+- `--font-size-min`: 14px (minimum font size)
+- `--font-size-max`: 18px (maximum font size)
+- `--font-ratio-min`: 1.2 (modular scale ratio for small screens)
+- `--font-ratio-max`: 1.33 (modular scale ratio for large screens)
+- `--variable-unit`: 100vi (viewport inline) or 100cqi (container query inline) when using `.fc`
+
+### Spacing
+- `--vs-s`: 0.5rem (vertical spacing small)
+- `--vs-base`: 1rem (vertical spacing base)
+- `--vs-m`: 1.5rem (vertical spacing medium)
+- `--vs-l`: 2rem (vertical spacing large)
+
+### Border Radius
+- `--br-xs`: 2px
+- `--br-s`: 4px
+- `--br-m`: 8px
+- `--br-l`: 16px
+
+### Padding
+- `--pad-xs`: 2px
+- `--pad-s`: 6px
+- `--pad-m`: 12px
+- `--pad-l`: 25px
+
+### Shadows
+Layered, adaptive shadows (deeper in dark mode):
+- `--shadow-1`: Subtle shadow
+- `--shadow-2`: Light lift
+- `--shadow-3`: Moderate depth
+- `--shadow-4`: Strong elevation
+- `--shadow-5`: Dramatic shadow
+- `--shadow-6`: Maximum depth
+- `--box`: Inset highlights with subtle shadow
+
+### Colors
+- `--yellow`: #ffd817
+- `--orange`: #ff9e02
+- `--red`: #ff5a00
+- `--pink`: #ff0084
+- `--teal`: #a0dcc8
+- `--blue`: #0001fb
+
+### Theming (light-dark mode)
+- `--fg`: Foreground color (auto switches: black in light, white in dark)
+- `--bg`: Background color (auto switches: white in light, black in dark)
+- `--tint-or-shade`: 5% foreground mix (subtle backgrounds)
+- `--tint-or-shade-harder`: 10% foreground mix (stronger backgrounds)
+
+### Layout Customization
+- `--gap`: Default gap for layout utilities (default: varies per layout)
+- `--layout-gap`: Override gap for specific layout
+- `--min-card-width`: Minimum card width for `.layout-card` (default: 290px)
+- `--layout-min-card-width`: Override for specific card layout
+- `--max-width`: Max width for `.layout-readable` (default: 1200px)
+- `--layout-max-width`: Override for specific readable layout
+- `--padding`: Inline padding for `.layout-readable` (default: 2rem)
+- `--layout-padding`: Override for specific readable layout
+
+## Typography Classes
+
+### Font Size Utilities
+- `.fs-xs`: Extra small (--fl: -1)
+- `.fs-base`: Base size (--fl: 0)
+- `.fs-s`: Small heading (--fl: 1)
+- `.fs-m`: Medium heading (--fl: 2)
+- `.fs-l`: Large heading (--fl: 3)
+- `.fs-xl`: Extra large (--fl: 4)
+- `.fs-xxl`: Double extra large (--fl: 5)
+- `.fs-xxxl`: Triple extra large (--fl: 6)
+
+### Heading Classes
+- `.h1` through `.h6`: Apply heading styles to non-heading elements
+
+### Fluid Typography
+- `.fc` or `.fluid-text-container`: Makes typography responsive to container width instead of viewport (uses container queries)
+
+## Layout Classes
+
+### `.layout-card`
+Auto-fill responsive card grid
+```css
+/* Usage */
+<div class="layout-card">
+  <div>Card 1</div>
+  <div>Card 2</div>
+</div>
+
+/* Customize */
+<div class="layout-card" style="--min-card-width: 250px; --gap: 1rem;">
+```
+
+### `.layout-sidebar`
+Sidebar + main content (default: 250px sidebar)
+```css
+/* Variants */
+.layout-sidebar          /* 250px sidebar */
+.layout-sidebar.narrow   /* 150px sidebar */
+.layout-sidebar.wide     /* 350px sidebar */
+.layout-sidebar.invert   /* Sidebar on right */
+
+/* Stacks to single column on mobile (<768px) */
+```
+
+### `.layout-split`
+50/50 two-column layout
+```css
+/* Variants */
+.layout-split           /* Stacks on mobile */
+.layout-split.no-stack  /* Stays side-by-side on mobile */
+```
+
+### `.layout-three-col`
+Three equal columns
+```css
+/* Responsive breakpoints */
+/* 3 columns on desktop (≥1024px) */
+/* 2 columns on tablet (≥768px) */
+/* 1 column on mobile (<768px) */
+```
+
+### `.layout-readable`
+Max-width container for optimal readability
+```css
+/* Variants */
+.layout-readable        /* Start-aligned (default) */
+.layout-readable.center /* Centered */
+.layout-readable.end    /* End-aligned */
+
+/* Child utility */
+.full-bleed             /* Breaks out of container to full viewport width */
+```
+
+### `.layout-holy-grail`
+Three-column layout: sidebar + content + sidebar
+```css
+/* Usage */
+<div class="layout-holy-grail">
+  <div style="width: 200px">Left sidebar</div>
+  <div>Main content</div>
+  <div style="width: 200px">Right sidebar</div>
+</div>
+```
+
+### `.stack`
+Vertical flexbox with gap
+```css
+/* Default gap: 1rem */
+/* Customize with --gap variable */
+```
+
+## Utility Classes
+
+### Display & Layout
+- `.flex`: Display flex with 20px gap
+- `.grid`: Display grid with 1rem gap (customize with `--gap`)
+- `.split`: Flex layout with space-between and top alignment
+- `.readable`: Max-width 900px container
+
+### List Utilities
+- `.no-list`: Remove list styling (margin, padding, list-style)
+
+### Spacing
+- `.row`: Add vertical margin (--vs-m)
+
+### Visibility
+- `.visually-hidden`: Hide element visually but keep accessible to screen readers
+
+### Shape
+- `.circle`: Circular element (default --size: 40px)
+
+### Box Styles
+- `.box-1`: Subtle box with tint background and soft shadow
+- `.box-2`: Semi-gloss box with gradient and stronger shadow
+
+### Button
+- `.button`: Button styling for links and non-button elements
+
+## How It Works
+
+### Fluid Typography System
+Graffiti uses a custom fluid typography system based on the `--fl` (fluid level) variable:
+
+1. Set `--fl` on any element (-1 to 6)
+2. Font size automatically scales between viewport min/max
+3. Uses `clamp()`, `pow()`, and modular scale ratios
+4. All text elements inherit fluid sizing
+
+Example:
+```css
+.custom-text {
+  --fl: 3; /* Will scale like an h3 */
+}
+```
+
+### Container-Based Fluid Typography
+Add `.fc` to a container to make child typography responsive to container width instead of viewport:
+```html
+<div class="fc">
+  <h1>Scales with container, not viewport</h1>
+</div>
+```
+
+### Theming
+Uses `light-dark()` function for automatic color scheme switching:
+- `color-scheme: light dark` enables auto detection
+- All theme colors automatically adapt
+- Shadows become deeper in dark mode
+
+### Layout Philosophy
+- Mobile-first responsive design
+- CSS Grid-based layouts
+- Customize via CSS variables (--gap, --min-card-width, etc.)
+- Minimal, composable classes
