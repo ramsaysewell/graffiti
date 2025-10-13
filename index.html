@@ -27,9 +27,18 @@
       .heading {
         border-bottom: solid 1px;
       }
-		  h4 {
-				font-weight: 400;
-			}
+      h4 {
+        font-weight: 400;
+      }
+
+      .color {
+        padding: var(--pad-m) var(--pad-l);
+        border-radius: var(--br-s);
+        min-width: 150px;
+        &.light {
+          color: var(--gray-9);
+        }
+      }
     </style>
 
     <header class="split">
@@ -62,24 +71,66 @@
         >
       </p>
       <p>
-        <a
-          href="https://raw.githubusercontent.com/stolinski/graffiti/refs/heads/main/llms.txt"
+        <a href="https://raw.githubusercontent.com/stolinski/graffiti/refs/heads/main/llms.txt"
           >Give you LLM our docs</a
         >
       </p>
-
     </section>
 
     <!-- Typography Demos -->
     <h2 class="heading">Typography</h2>
-    <section class="demo-section">
-      <h1 class="fs-xxxl">Extra Large</h1>
-      <h1>H1 - Large Heading</h1>
-      <h2>H2 - Med Heading</h2>
-      <h3>H3 - Small Heading</h3>
-      <h4 style="font-weight: 700;">H4 - Xtra Small Heading</h4>
-      <h5>H5 - Base Heading</h5>
-      <h6>H6 - Small Text Heading</h6>
+    <section
+      class="demo-section stack"
+      style="margin-bottom: var(--vs-xl); --stack-gap: var(--vs-xl)"
+    >
+      <div>
+        <h3>Defaults</h3>
+        <h1>H1 - Large Heading</h1>
+        <h2>H2 - Med Heading</h2>
+        <h3>H3 - Small Heading</h3>
+        <h4 style="font-weight: 700">H4 - Xtra Small Heading</h4>
+        <h5>H5 - Base Heading</h5>
+        <h6>H6 - Small Text Heading</h6>
+        <p>
+          This is a paragraph of body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+
+      <div>
+        <h3>Font Size Utilities</h3>
+        <p>
+          Apply fluid sizing to any element with
+          <code>.fs-*</code> classes
+        </p>
+        <div>
+          <div class="fs-xxxl">.fs-xxxl - Triple Extra Large</div>
+          <div class="fs-xxl">.fs-xxl - Double Extra Large</div>
+          <div class="fs-xl">.fs-xl - Extra Large</div>
+          <div class="fs-l">.fs-l - Large</div>
+          <div class="fs-m">.fs-m - Medium</div>
+          <div class="fs-s">.fs-s - Small</div>
+          <div class="fs-base">.fs-base - Base Size</div>
+          <div class="fs-xs">.fs-xs - Extra Small</div>
+        </div>
+      </div>
+
+      <div>
+        <h3>Heading Classes</h3>
+        <p>
+          Apply heading styles to non-heading elements with
+          <code>.h1</code> through <code>.h6</code>
+        </p>
+        <div>
+          <p class="h1">This is a p with .h1 class</p>
+          <p class="h2">This is a p with .h2 class</p>
+          <p class="h3">This is a p with .h3 class</p>
+          <p class="h4">This is a p with .h4 class</p>
+          <p class="h5">This is a p with .h5 class</p>
+          <p class="h6">This is a p with .h6 class</p>
+        </div>
+      </div>
     </section>
 
     <!-- Layout Card -->
@@ -104,23 +155,17 @@
         <main class="demo-box">Main Content</main>
       </div>
 
-
-
       <h4>.layout-sidebar.narrow</h4>
       <div class="layout-sidebar narrow" style="background: var(--tint-or-shade)">
         <aside class="demo-box">150px Sidebar</aside>
         <main class="demo-box">Main Content</main>
       </div>
 
-
-
-
       <h4>.layout-sidebar.wide</h4>
       <div class="layout-sidebar wide" style="background: var(--tint-or-shade)">
         <aside class="demo-box">350px Sidebar</aside>
         <main class="demo-box">Main Content</main>
       </div>
-
 
       <h4>.layout-sidebar.invert</h4>
       <div class="layout-sidebar invert" style="background: var(--tint-or-shade)">
@@ -197,7 +242,6 @@
           <p>More readable content...</p>
         </div>
       </div>
-    </section>
 
       <h3>.layout-holy-grail</h3>
       <div class="layout-holy-grail" style="background: var(--tint-or-shade)">
@@ -235,14 +279,58 @@
       </div>
     </section>
 
-		<section class="demo-section stack">
+    <!-- Cluster Layout -->
+    <section class="demo-section stack">
+      <h3>.layout-cluster</h3>
+      <p>Horizontal wrapping list with gap (perfect for tags, pills, breadcrumbs)</p>
+      <div class="layout-cluster" style="background: var(--tint-or-shade); padding: 1rem">
+        <span class="demo-box" style="padding: 0.5rem 1rem">Tag 1</span>
+        <span class="demo-box" style="padding: 0.5rem 1rem">Tag 2</span>
+        <span class="demo-box" style="padding: 0.5rem 1rem">Tag 3</span>
+        <span class="demo-box" style="padding: 0.5rem 1rem">Tag 4</span>
+        <span class="demo-box" style="padding: 0.5rem 1rem">Tag 5</span>
+        <span class="demo-box" style="padding: 0.5rem 1rem">Tag 6</span>
+      </div>
+    </section>
+
+    <!-- Carousel Layout -->
+    <section class="demo-section stack">
+      <h3>.layout-carousel</h3>
+      <p>Horizontal scroll with CSS scroll-snap (no JavaScript required)</p>
+      <div class="layout-carousel" style="background: var(--tint-or-shade); padding: 1rem">
+        <div class="demo-box" style="min-width: 250px; height: 200px">Slide 1</div>
+        <div class="demo-box" style="min-width: 250px; height: 200px">Slide 2</div>
+        <div class="demo-box" style="min-width: 250px; height: 200px">Slide 3</div>
+        <div class="demo-box" style="min-width: 250px; height: 200px">Slide 4</div>
+        <div class="demo-box" style="min-width: 250px; height: 200px">Slide 5</div>
+      </div>
+    </section>
+
+    <!-- Reel Layout -->
+    <section class="demo-section stack">
+      <h3>.layout-reel</h3>
+      <p>Vertical scroll with CSS scroll-snap (customizable height with --reel-height)</p>
+      <div
+        class="layout-reel"
+        style="background: var(--tint-or-shade); padding: 1rem; --reel-height: 400px"
+      >
+        <div class="demo-box" style="min-height: 200px">Panel 1</div>
+        <div class="demo-box" style="min-height: 200px">Panel 2</div>
+        <div class="demo-box" style="min-height: 200px">Panel 3</div>
+        <div class="demo-box" style="min-height: 200px">Panel 4</div>
+      </div>
+    </section>
+
+    <section class="demo-section stack">
       <h2 class="heading">Misc Classes</h2>
-			<div class="stack">
+      <div class="stack">
         <h3>Boxes</h3>
         <div class="layout-card" style="--min-card-width: 200px">
           <div class="box-1">.box-1<br />Subtle</div>
           <div class="box-2">.box-2<br />Semi Gloss</div>
-          <div style="box-shadow: var(--box), var(--shadow-6);">You can make a custom box with CSS variables box-shadow: var(--box), var(--shadow-5);</div>
+          <div style="box-shadow: var(--box), var(--shadow-6)">
+            You can make a custom box with CSS variables box-shadow: var(--box), var(--shadow-5);
+          </div>
         </div>
       </div>
 
@@ -279,7 +367,10 @@
         <p>Max-width 900px container</p>
         <div class="readable" style="background: var(--tint-or-shade)">
           <div class="demo-box">
-            <p>This content is constrained to 900px max-width for optimal readability. Unlike .layout-readable, this doesn't include padding.</p>
+            <p>
+              This content is constrained to 900px max-width for optimal readability. Unlike
+              .layout-readable, this doesn't include padding.
+            </p>
           </div>
         </div>
       </div>
@@ -331,7 +422,12 @@
         <h3>.visually-hidden</h3>
         <p>Hide element visually but keep accessible to screen readers</p>
         <div class="demo-box">
-          <p>There is hidden text after this colon: <span class="visually-hidden">This text is hidden visually but available to screen readers!</span></p>
+          <p>
+            There is hidden text after this colon:
+            <span class="visually-hidden"
+              >This text is hidden visually but available to screen readers!</span
+            >
+          </p>
           <p>You can't see it, but it's there for accessibility.</p>
         </div>
       </div>
@@ -352,20 +448,82 @@
           </div>
         </div>
       </div>
-		</section>
+
+      <div class="stack">
+        <h3>Aspect Ratio Utilities</h3>
+        <p>Maintain specific aspect ratios for containers (useful for images, videos, cards)</p>
+        <div class="layout-card" style="--min-card-width: 200px">
+          <div class="aspect-square demo-box" style="display: grid; place-items: center">
+            .aspect-square<br />1:1
+          </div>
+          <div class="aspect-video demo-box" style="display: grid; place-items: center">
+            .aspect-video<br />16:9
+          </div>
+          <div class="aspect-4-3 demo-box" style="display: grid; place-items: center">
+            .aspect-4-3<br />4:3
+          </div>
+          <div class="aspect-21-9 demo-box" style="display: grid; place-items: center">
+            .aspect-21-9<br />21:9
+          </div>
+        </div>
+        <p class="fs-xs">
+          Custom: Use <code>aspect-ratio: 2 / 1;</code> or
+          <code>aspect-ratio: var(--aspect-ratio);</code>
+        </p>
+      </div>
+    </section>
+
+    <!-- Forms Section -->
+    <section class="demo-section stack">
+      <h2 class="heading">Forms</h2>
+
+      <div class="stack">
+        <h3>Form Validation States</h3>
+        <p>Built-in styles for error, success, and warning states</p>
+
+        <form class="stack" style="max-width: 500px">
+          <div class="stack" style="--gap: 0.5rem">
+            <label for="email-error">Email (error state)</label>
+            <input type="email" id="email-error" class="error" value="invalid-email" />
+            <small class="error">Please enter a valid email address</small>
+          </div>
+
+          <div class="stack" style="--gap: 0.5rem">
+            <label for="username-success">Username (success state)</label>
+            <input type="text" id="username-success" class="success" value="cool_username" />
+            <small class="success">Username is available!</small>
+          </div>
+
+          <div class="stack" style="--gap: 0.5rem">
+            <label for="password-warning">Password (warning state)</label>
+            <input type="password" id="password-warning" class="warning" value="password123" />
+            <small class="warning">Password is weak. Consider using a stronger password.</small>
+          </div>
+
+          <div class="stack" style="--gap: 0.5rem">
+            <label for="name-default">Full Name (default state)</label>
+            <input type="text" id="name-default" placeholder="Enter your name" />
+          </div>
+        </form>
+      </div>
+    </section>
 
     <!-- CSS Variables Reference -->
     <section class="demo-section stack">
       <h2 class="heading">CSS Variables Reference</h2>
-			<p>A big part of Graffiti is the flexible CSS variable system that can be used in your CSS to create consistent and adaptable designs.</p>
+      <p>
+        A big part of Graffiti is the flexible CSS variable system that can be used in your CSS to
+        create consistent and adaptable designs.
+      </p>
 
       <div class="stack">
         <h3>Vertical Spacing</h3>
         <div class="layout-card" style="--min-card-width: 150px">
-          <div class="demo-box" style="padding: var(--vs-s)">--vs-s: 0.5rem</div>
-          <div class="demo-box" style="padding: var(--vs-base)">--vs-base: 1rem</div>
-          <div class="demo-box" style="padding: var(--vs-m)">--vs-m: 1.5rem</div>
-          <div class="demo-box" style="padding: var(--vs-l)">--vs-l: 2rem</div>
+          <div class="demo-box" style="padding: var(--vs-s) var(--vs-s)">--vs-s: 0.5rem</div>
+          <div class="demo-box" style="padding: var(--vs-base) var(--vs-s)">--vs-base: 1rem</div>
+          <div class="demo-box" style="padding: var(--vs-m) var(--vs-s)">--vs-m: 1.5rem</div>
+          <div class="demo-box" style="padding: var(--vs-l) var(--vs-s)">--vs-l: 2rem</div>
+          <div class="demo-box" style="padding: var(--vs-xl) var(--vs-s)">--vs-xl: 2rem</div>
         </div>
       </div>
 
@@ -390,6 +548,30 @@
       </div>
 
       <div class="stack">
+        <h3>Line Heights</h3>
+        <p>Consistent line height tokens for better typography control</p>
+        <div class="stack">
+          <div class="demo-box" style="line-height: var(--lh-tight)">
+            <strong>--lh-tight: 1.2</strong><br />
+            This is tight line height, useful for headings and display text where you want compact
+            vertical spacing. The quick brown fox jumps over the lazy dog.
+          </div>
+          <div class="demo-box" style="line-height: var(--lh-normal)">
+            <strong>--lh-normal: 1.5</strong><br />
+            This is normal line height, the default for body text. It provides comfortable reading
+            with balanced spacing. The quick brown fox jumps over the lazy dog. The five boxing
+            wizards jump quickly.
+          </div>
+          <div class="demo-box" style="line-height: var(--lh-loose)">
+            <strong>--lh-loose: 1.8</strong><br />
+            This is loose line height, creating extra vertical breathing room. Useful for larger
+            body text or when you want more space between lines. The quick brown fox jumps over the
+            lazy dog.
+          </div>
+        </div>
+      </div>
+
+      <div class="stack">
         <h3>Shadows</h3>
         <p>Modern layered shadows - subtle in light mode, deeper and more intense in dark mode</p>
         <div class="layout-card" style="--min-card-width: 200px">
@@ -402,35 +584,137 @@
         </div>
       </div>
 
-
-
       <div class="stack">
-				<h3>Colors</h3>
-				<p>More coming soon...</p>
-        <div class="layout-card" style="--min-card-width: 150px">
-          <div style="background: var(--yellow); padding: 1rem; border-radius: var(--br-s)">
-            --yellow
+        <h3>Colors</h3>
+        <p>
+          OKLCH color system with automatic 1-9 scales generated from base colors (scale 5) using
+          relative color syntax
+        </p>
+
+        <div class="stack">
+          <h4>Yellow Scale</h4>
+          <div class="color light" style="background: var(--yellow)">--yellow (5)</div>
+          <div class="layout-cluster">
+            <div class="color light" style="background: var(--yellow-1)">--yellow-1</div>
+            <div class="color light" style="background: var(--yellow-2)">--yellow-2</div>
+            <div class="color light" style="background: var(--yellow-3)">--yellow-3</div>
+            <div class="color light" style="background: var(--yellow-4)">--yellow-4</div>
+            <div class="color light" style="background: var(--yellow)">--yellow-5</div>
+            <div class="color light" style="background: var(--yellow-6)">--yellow-6</div>
+            <div class="color" style="background: var(--yellow-7)">--yellow-7</div>
+            <div class="color" style="background: var(--yellow-8)">--yellow-8</div>
+            <div class="color" style="background: var(--yellow-9)">--yellow-9</div>
           </div>
-          <div style="background: var(--orange); padding: 1rem; border-radius: var(--br-s)">
-            --orange
+        </div>
+
+        <div class="stack">
+          <h4>Orange Scale</h4>
+          <div class="color light" style="background: var(--orange)">--orange</div>
+          <div class="layout-cluster">
+            <div class="color light" style="background: var(--orange-1)">--orange-1</div>
+            <div class="color light" style="background: var(--orange-2)">--orange-2</div>
+            <div class="color light" style="background: var(--orange-3)">--orange-3</div>
+            <div class="color light" style="background: var(--orange-4)">--orange-4</div>
+            <div class="color light" style="background: var(--orange)">--orange-5</div>
+            <div class="color" style="background: var(--orange-6)">--orange-6</div>
+            <div class="color" style="background: var(--orange-7)">--orange-7</div>
+            <div class="color" style="background: var(--orange-8)">--orange-8</div>
+            <div class="color" style="background: var(--orange-9)">--orange-9</div>
           </div>
-          <div
-            style="background: var(--red); color: white; padding: 1rem; border-radius: var(--br-s)"
-          >
-            --red
+        </div>
+
+        <div class="stack">
+          <h4>Red Scale</h4>
+          <div class="color" style="background: var(--red)">--red</div>
+          <div class="layout-cluster">
+            <div class="color light" style="background: var(--red-1)">--red-1</div>
+            <div class="color light" style="background: var(--red-2)">--red-2</div>
+            <div class="color light" style="background: var(--red-3)">--red-3</div>
+            <div class="color light" style="background: var(--red-4)">--red-4</div>
+            <div class="color light" style="background: var(--red)">--red-5</div>
+            <div class="color" style="background: var(--red-6)">--red-6</div>
+            <div class="color" style="background: var(--red-7)">--red-7</div>
+            <div class="color" style="background: var(--red-8)">--red-8</div>
+            <div class="color" style="background: var(--red-9)">--red-9</div>
           </div>
-          <div
-            style="background: var(--pink); color: white; padding: 1rem; border-radius: var(--br-s)"
-          >
-            --pink
+        </div>
+
+        <div class="stack">
+          <h4>Pink Scale</h4>
+          <div class="color" style="background: var(--pink)">--pink</div>
+          <div class="layout-cluster">
+            <div class="color light" style="background: var(--pink-1)">--pink-1</div>
+            <div class="color light" style="background: var(--pink-2)">--pink-2</div>
+            <div class="color light" style="background: var(--pink-3)">--pink-3</div>
+            <div class="color light" style="background: var(--pink-4)">--pink-4</div>
+            <div class="color" style="background: var(--pink)">--pink-5</div>
+            <div class="color" class="color" style="background: var(--pink-6)">--pink-6</div>
+            <div class="color" style="background: var(--pink-7)">--pink-7</div>
+            <div class="color" style="background: var(--pink-8)">--pink-8</div>
+            <div class="color" style="background: var(--pink-9)">--pink-9</div>
           </div>
-          <div style="background: var(--teal); padding: 1rem; border-radius: var(--br-s)">
-            --teal
+        </div>
+
+        <div class="stack">
+          <h4>Green Scale</h4>
+          <div class="color light" style="background: var(--green)">--green</div>
+          <div class="layout-cluster">
+            <div class="color light" style="background: var(--green-1)">--green-1</div>
+            <div class="color light" style="background: var(--green-2)">--green-2</div>
+            <div class="color light" style="background: var(--green-3)">--green-3</div>
+            <div class="color light" style="background: var(--green-4)">--green-4</div>
+            <div class="color light" style="background: var(--green)">--green-5</div>
+            <div class="color light" style="background: var(--green-6)">--green-6</div>
+            <div class="color" style="background: var(--green-7)">--green-7</div>
+            <div class="color" style="background: var(--green-8)">--green-8</div>
+            <div class="color" style="background: var(--green-9)">--green-9</div>
           </div>
-          <div
-            style="background: var(--blue); color: white; padding: 1rem; border-radius: var(--br-s)"
-          >
-            --blue
+        </div>
+
+        <div class="stack">
+          <h4>Teal Scale</h4>
+          <div class="color light" style="background: var(--teal)">--teal</div>
+          <div class="layout-cluster">
+            <div class="color light" style="background: var(--teal-1)">--teal-1</div>
+            <div class="color light" style="background: var(--teal-2)">--teal-2</div>
+            <div class="color light" style="background: var(--teal-3)">--teal-3</div>
+            <div class="color light" style="background: var(--teal-4)">--teal-4</div>
+            <div class="color light" style="background: var(--teal)">--teal-5</div>
+            <div class="color light" style="background: var(--teal-6)">--teal-6</div>
+            <div class="color light" style="background: var(--teal-7)">--teal-7</div>
+            <div class="color" style="background: var(--teal-8)">--teal-8</div>
+            <div class="color" style="background: var(--teal-9)">--teal-9</div>
+          </div>
+        </div>
+
+        <div class="stack">
+          <h4>Blue Scale</h4>
+          <div class="color" style="background: var(--blue)">--blue</div>
+          <div class="layout-cluster">
+            <div class="color light" style="background: var(--blue-1)">--blue-1</div>
+            <div class="color light" style="background: var(--blue-2)">--blue-2</div>
+            <div class="color light" style="background: var(--blue-3)">--blue-3</div>
+            <div class="color light" style="background: var(--blue-4)">--blue-4</div>
+            <div class="color" style="background: var(--blue-5)">--blue-5</div>
+            <div class="color" style="background: var(--blue-6)">--blue-6</div>
+            <div class="color" style="background: var(--blue-7)">--blue-7</div>
+            <div class="color" style="background: var(--blue-8)">--blue-8</div>
+            <div class="color" style="background: var(--blue-9)">--blue-9</div>
+          </div>
+        </div>
+
+        <div class="stack">
+          <h4>Gray Scale</h4>
+          <div class="layout-cluster">
+            <div class="color light" style="background: var(--gray-1)">--gray-1</div>
+            <div class="color light" style="background: var(--gray-2)">--gray-2</div>
+            <div class="color light" style="background: var(--gray-3)">--gray-3</div>
+            <div class="color light" style="background: var(--gray-4)">--gray-4</div>
+            <div class="color" style="background: var(--gray-5)">--gray-5</div>
+            <div class="color" style="background: var(--gray-6)">--gray-6</div>
+            <div class="color" style="background: var(--gray-7)">--gray-7</div>
+            <div class="color" style="background: var(--gray-8)">--gray-8</div>
+            <div class="color" style="background: var(--gray-9)">--gray-9</div>
           </div>
         </div>
       </div>
@@ -453,8 +737,9 @@
         </div>
       </div>
     </section>
-		<footer>
-			The website footer. I always hate doing footers for some reason. Just ignore this.
-		</footer>
+
+    <footer>
+      The website footer. I always hate doing footers for some reason. Just ignore this.
+    </footer>
   </body>
 </html>

@@ -13,6 +13,7 @@
   --vs-base: 1rem;
   --vs-m: 1.5rem;
   --vs-l: 2rem;
+  --vs-xl: 4rem;
 
   /* Border Radius */
   --br-xs: 2px;
@@ -38,13 +39,103 @@
   --box: 0 1px 2px rgb(0 0 0 / 0.04), inset -1px 1px 2px rgb(255 255 255 / 0.1),
     inset 1px 1px 2px rgb(255 255 255 / 0.1);
 
-  /* Default Palette */
-  --yellow: #ffd817;
-  --orange: #ff9e02;
-  --red: #ff5a00;
-  --pink: #ff0084;
-  --teal: #a0dcc8;
-  --blue: #0001fb;
+  /* Color System - OKLCH with 1-9 scales */
+  /* Base colors (scale 5) */
+  --yellow: oklch(0.88 0.15 95);
+  --orange: oklch(0.75 0.18 65);
+  --red: oklch(0.62 0.22 35);
+  --pink: oklch(0.62 0.25 350);
+  --green: oklch(0.72 0.18 165);
+  --teal: oklch(0.82 0.08 185);
+  --blue: oklch(0.5 0.28 270);
+
+  /* Yellow scale */
+  --yellow-1: oklch(from var(--yellow) calc(l + 0.1) calc(c * 0.3) h);
+  --yellow-2: oklch(from var(--yellow) calc(l + 0.08) calc(c * 0.5) h);
+  --yellow-3: oklch(from var(--yellow) calc(l + 0.05) calc(c * 0.7) h);
+  --yellow-4: oklch(from var(--yellow) calc(l + 0.02) calc(c * 0.85) h);
+  --yellow-5: oklch(from var(--yellow) l c h);
+  --yellow-6: oklch(from var(--yellow) calc(l - 0.08) calc(c * 1.1) h);
+  --yellow-7: oklch(from var(--yellow) calc(l - 0.16) calc(c * 1.15) h);
+  --yellow-8: oklch(from var(--yellow) calc(l - 0.24) calc(c * 1.1) h);
+  --yellow-9: oklch(from var(--yellow) calc(l - 0.32) calc(c * 0.9) h);
+
+  /* Orange scale */
+  --orange-1: oklch(from var(--orange) calc(l + 0.2) calc(c * 0.3) h);
+  --orange-2: oklch(from var(--orange) calc(l + 0.15) calc(c * 0.5) h);
+  --orange-3: oklch(from var(--orange) calc(l + 0.1) calc(c * 0.7) h);
+  --orange-4: oklch(from var(--orange) calc(l + 0.05) calc(c * 0.85) h);
+  --orange-5: oklch(from var(--orange) l c h);
+  --orange-6: oklch(from var(--orange) calc(l - 0.08) calc(c * 1.1) h);
+  --orange-7: oklch(from var(--orange) calc(l - 0.16) calc(c * 1.15) h);
+  --orange-8: oklch(from var(--orange) calc(l - 0.24) calc(c * 1.1) h);
+  --orange-9: oklch(from var(--orange) calc(l - 0.32) calc(c * 0.9) h);
+
+  /* Red scale */
+  --red-1: oklch(from var(--red) calc(l + 0.25) calc(c * 0.3) h);
+  --red-2: oklch(from var(--red) calc(l + 0.2) calc(c * 0.5) h);
+  --red-3: oklch(from var(--red) calc(l + 0.12) calc(c * 0.7) h);
+  --red-4: oklch(from var(--red) calc(l + 0.06) calc(c * 0.85) h);
+  --red-5: oklch(from var(--red) l c h);
+  --red-6: oklch(from var(--red) calc(l - 0.08) calc(c * 1.05) h);
+  --red-7: oklch(from var(--red) calc(l - 0.16) calc(c * 1.1) h);
+  --red-8: oklch(from var(--red) calc(l - 0.24) calc(c * 1.05) h);
+  --red-9: oklch(from var(--red) calc(l - 0.32) calc(c * 0.8) h);
+
+  /* Pink scale */
+  --pink-1: oklch(from var(--pink) calc(l + 0.28) calc(c * 0.3) h);
+  --pink-2: oklch(from var(--pink) calc(l + 0.22) calc(c * 0.5) h);
+  --pink-3: oklch(from var(--pink) calc(l + 0.14) calc(c * 0.7) h);
+  --pink-4: oklch(from var(--pink) calc(l + 0.07) calc(c * 0.85) h);
+  --pink-5: oklch(from var(--pink) l c h);
+  --pink-6: oklch(from var(--pink) calc(l - 0.08) calc(c * 1.05) h);
+  --pink-7: oklch(from var(--pink) calc(l - 0.16) calc(c * 1.1) h);
+  --pink-8: oklch(from var(--pink) calc(l - 0.24) calc(c * 1.05) h);
+  --pink-9: oklch(from var(--pink) calc(l - 0.32) calc(c * 0.8) h);
+
+  /* Green scale */
+  --green-1: oklch(from var(--green) calc(l + 0.2) calc(c * 0.3) h);
+  --green-2: oklch(from var(--green) calc(l + 0.15) calc(c * 0.5) h);
+  --green-3: oklch(from var(--green) calc(l + 0.1) calc(c * 0.7) h);
+  --green-4: oklch(from var(--green) calc(l + 0.05) calc(c * 0.85) h);
+  --green-5: oklch(from var(--green) l c h);
+  --green-6: oklch(from var(--green) calc(l - 0.08) calc(c * 1.1) h);
+  --green-7: oklch(from var(--green) calc(l - 0.16) calc(c * 1.15) h);
+  --green-8: oklch(from var(--green) calc(l - 0.24) calc(c * 1.1) h);
+  --green-9: oklch(from var(--green) calc(l - 0.32) calc(c * 0.9) h);
+
+  /* Teal scale */
+  --teal-1: oklch(from var(--teal) calc(l + 0.12) calc(c * 0.4) h);
+  --teal-2: oklch(from var(--teal) calc(l + 0.09) calc(c * 0.6) h);
+  --teal-3: oklch(from var(--teal) calc(l + 0.06) calc(c * 0.75) h);
+  --teal-4: oklch(from var(--teal) calc(l + 0.03) calc(c * 0.85) h);
+  --teal-5: oklch(from var(--teal) l c h);
+  --teal-6: oklch(from var(--teal) calc(l - 0.1) calc(c * 1.3) h);
+  --teal-7: oklch(from var(--teal) calc(l - 0.2) calc(c * 1.5) h);
+  --teal-8: oklch(from var(--teal) calc(l - 0.3) calc(c * 1.4) h);
+  --teal-9: oklch(from var(--teal) calc(l - 0.4) calc(c * 1.2) h);
+
+  /* Blue scale */
+  --blue-1: oklch(from var(--blue) calc(l + 0.35) calc(c * 0.3) h);
+  --blue-2: oklch(from var(--blue) calc(l + 0.28) calc(c * 0.5) h);
+  --blue-3: oklch(from var(--blue) calc(l + 0.18) calc(c * 0.7) h);
+  --blue-4: oklch(from var(--blue) calc(l + 0.09) calc(c * 0.85) h);
+  --blue-5: oklch(from var(--blue) l c h);
+  --blue-6: oklch(from var(--blue) calc(l - 0.06) calc(c * 1.05) h);
+  --blue-7: oklch(from var(--blue) calc(l - 0.12) calc(c * 1.1) h);
+  --blue-8: oklch(from var(--blue) calc(l - 0.18) calc(c * 1.05) h);
+  --blue-9: oklch(from var(--blue) calc(l - 0.24) calc(c * 0.8) h);
+
+  /* Neutral gray scale */
+  --gray-1: oklch(0.97 0.01 270);
+  --gray-2: oklch(0.9 0.01 270);
+  --gray-3: oklch(0.8 0.015 270);
+  --gray-4: oklch(0.7 0.015 270);
+  --gray-5: oklch(0.6 0.02 270);
+  --gray-6: oklch(0.5 0.02 270);
+  --gray-7: oklch(0.4 0.015 270);
+  --gray-8: oklch(0.28 0.01 270);
+  --gray-9: oklch(0.18 0.01 270);
 
   --fg: light-dark(#000, #fff);
   --bg: light-dark(#fff, #000);
@@ -59,6 +150,61 @@
   --font-ratio-max: 1.33;
   --font-width-min: 320;
   --font-width-max: 1500;
+
+  /* Line Height Tokens */
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+  --lh-loose: 1.8;
+
+  /* Easing Tokens - Using linear() for modern, natural motion */
+  --ease-smooth: linear(
+    0,
+    0.0039,
+    0.0157,
+    0.0352,
+    0.0625 9.09%,
+    0.1407,
+    0.25,
+    0.3908,
+    0.5625,
+    0.7654,
+    1
+  );
+  --ease-bounce: linear(
+    0,
+    0.004,
+    0.016,
+    0.035,
+    0.063,
+    0.098,
+    0.141,
+    0.191,
+    0.25,
+    0.316,
+    0.391 36.36%,
+    0.563,
+    0.766,
+    1 54.55%,
+    0.946,
+    0.908 72.73%,
+    0.953,
+    1,
+    0.994,
+    0.998,
+    1
+  );
+  --ease-emphasized: linear(
+    0,
+    0.0038,
+    0.0155,
+    0.0352,
+    0.0625 9%,
+    0.1407,
+    0.25 18%,
+    0.5625 36%,
+    0.7655 45%,
+    1
+  );
 
   color-scheme: light dark;
 }
@@ -118,6 +264,22 @@ select,
 button,
 th,
 td {
+  /* Fluid Typography System
+   *
+   * This system creates responsive font sizes that scale smoothly between viewport sizes.
+   * Set --fl (fluid level) on any element to control its size (-1 to 6).
+   *
+   * How it works:
+   * 1. Calculate min/max font sizes using pow() with modular scale ratios
+   * 2. Find the rate of change (slope) between min and max
+   * 3. Use clamp() to create a fluid value that scales with viewport/container width
+   *
+   * Formula breakdown:
+   * - --fluid-min: Minimum font size = base * ratio^level
+   * - --fluid-max: Maximum font size = base * ratio^level
+   * - --fluid-preferred: Slope of linear interpolation
+   * - --fluid-type: clamp(min, min + slope * viewport, max)
+   */
   --fluid-min: calc(var(--font-size-min) * pow(var(--font-ratio-min), var(--fl, 0)));
   --fluid-max: calc(var(--font-size-max) * pow(var(--font-ratio-max), var(--fl, 0)));
   --fluid-preferred: calc(
@@ -219,17 +381,72 @@ select {
 button,
 .button {
   cursor: pointer;
-  background: var(--c-bg);
-  color: var(--c-fg);
+  background: var(--bg);
+  color: var(--fg);
   border: solid 1px var(--tint-or-shade);
   border-radius: var(--br-s);
   padding: var(--pad-m) var(--pad-l);
   text-decoration: none;
+  &:hover {
+    background: var(--tint-or-shade);
+  }
+  &:active {
+    background: var(--tint-or-shade-harder);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  &:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
+  }
+}
+
+a {
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    opacity: 0.6;
+  }
+  &:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
+  }
+}
+
+input,
+textarea,
+select {
+  &:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
+  }
+  &[aria-invalid="true"],
+  &.error {
+    border-color: var(--red-6);
+    &:focus-visible {
+      outline-color: var(--red-6);
+    }
+  }
+  &.success {
+    border-color: var(--green-6);
+    &:focus-visible {
+      outline-color: var(--green-6);
+    }
+  }
+  &.warning {
+    border-color: var(--yellow-7);
+    &:focus-visible {
+      outline-color: var(--yellow-7);
+    }
+  }
 }
 
 label {
   display: block;
-  font-size: var(--fs-xs);
+  --fl: -1;
 }
 
 /* UTILITIES */
@@ -252,7 +469,7 @@ label {
 .split {
   display: flex;
   gap: 20px;
-  align-items: top;
+  align-items: start;
   justify-content: space-between;
 }
 
@@ -287,6 +504,27 @@ label {
   padding: 0;
   width: var(--size);
   height: var(--size);
+}
+
+/* Aspect Ratio Utilities */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-21-9 {
+  aspect-ratio: 21 / 9;
+}
+
+.aspect-custom {
+  aspect-ratio: var(--aspect, 1 / 1);
 }
 
 /* END UTILITIES */
@@ -403,8 +641,8 @@ label {
 
 /* Full Bleed - Break out of readable container */
 .layout-readable .full-bleed {
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
+  width: 100vi;
+  margin-inline: calc(50% - 50vi);
 }
 
 /* Stack Layout - Vertical flexbox stack */
@@ -418,6 +656,44 @@ label {
 :is(.stack) > * {
   margin-block: 0;
   margin-inline: 0;
+}
+
+/* Cluster Layout - Horizontal wrapping list with gap */
+.layout-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--layout-gap, var(--gap, 1rem));
+  align-items: center;
+}
+
+/* Carousel Layout - Horizontal scroll with scroll snap */
+.layout-carousel {
+  display: flex;
+  gap: var(--layout-gap, var(--gap, 1rem));
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--layout-padding, var(--padding, 1rem));
+  scrollbar-width: thin;
+  > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+
+/* Reel Layout - Vertical scroll with scroll snap */
+.layout-reel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap, var(--gap, 1rem));
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-padding-block: var(--layout-padding, var(--padding, 1rem));
+  scrollbar-width: thin;
+  max-height: var(--reel-height, 80vh);
+  > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
@@ -483,7 +759,7 @@ label {
     backdrop-filter: blur(5px);
   }
   > *:first-child {
-    margin-top: 0;
+    margin-block-start: 0;
   }
   .share-window {
     display: flex;
@@ -506,15 +782,15 @@ label {
 
 .di-drawer-close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
 }
 
 .di-dialog-close {
   position: absolute;
   border: none;
-  right: 10px;
-  top: 10px;
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
   line-height: var(--fs-s);
   font-size: var(--fs-s);
   cursor: pointer;
@@ -522,12 +798,12 @@ label {
 
 /* Menu */
 .di-menu {
-  background: var(--c-bg);
+  background: var(--bg);
   box-shadow: var(--shadow-3);
   border-radius: var(--br-m);
   padding: var(--pad-s);
   flex-direction: column;
-  border: solid 1px var(--tint);
+  border: solid 1px var(--tint-or-shade);
   width: 150px;
   z-index: 10;
   .di-menu-inner {
@@ -540,7 +816,7 @@ label {
     line-height: 1;
     text-decoration: none;
     background: transparent;
-    color: var(--c-fg);
+    color: var(--fg);
     gap: 10px;
     padding: var(--pad-s);
     align-items: center;
@@ -556,12 +832,12 @@ label {
 }
 
 .di-toast-slice {
-  background: var(--c-bg);
+  background: var(--bg);
   box-shadow: var(--shadow-3);
   border-radius: var(--br-s);
   padding: var(--pad-m) var(--pad-l);
   flex-direction: column;
-  border: solid 1px var(--tint);
+  border: solid 1px var(--tint-or-shade);
   z-index: 10;
   overflow: hidden;
   position: relative;

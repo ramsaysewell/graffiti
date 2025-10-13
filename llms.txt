@@ -41,13 +41,51 @@ Layered, adaptive shadows (deeper in dark mode):
 - `--shadow-6`: Maximum depth
 - `--box`: Inset highlights with subtle shadow
 
-### Colors
-- `--yellow`: #ffd817
-- `--orange`: #ff9e02
-- `--red`: #ff5a00
-- `--pink`: #ff0084
-- `--teal`: #a0dcc8
-- `--blue`: #0001fb
+### Line Heights
+- `--lh-tight`: 1.2 (tight line height for headings/display text)
+- `--lh-normal`: 1.5 (default for body text)
+- `--lh-loose`: 1.8 (extra space for large body text)
+
+### Easing Functions
+Modern `linear()` based easing functions:
+- `--ease-smooth`: Smooth acceleration/deceleration
+- `--ease-bounce`: Bouncy spring-like motion
+- `--ease-emphasized`: Emphasized material design easing
+
+### Colors (OKLCH)
+Perceptually uniform OKLCH color space with automatic 1-9 scales generated via relative color syntax.
+Base colors are scale 5. Lower numbers are lighter, higher numbers are darker.
+
+#### Yellow
+- `--yellow` (scale 5): oklch(0.88 0.15 95) - Base yellow
+- `--yellow-1` through `--yellow-9`: Full scale from lightest to darkest
+
+#### Orange
+- `--orange` (scale 5): oklch(0.75 0.18 65) - Base orange
+- `--orange-1` through `--orange-9`: Full scale from lightest to darkest
+
+#### Red
+- `--red` (scale 5): oklch(0.62 0.22 35) - Base red
+- `--red-1` through `--red-9`: Full scale from lightest to darkest
+
+#### Pink
+- `--pink` (scale 5): oklch(0.62 0.25 350) - Base pink
+- `--pink-1` through `--pink-9`: Full scale from lightest to darkest
+
+#### Green
+- `--green` (scale 5): oklch(0.72 0.18 165) - Base green
+- `--green-1` through `--green-9`: Full scale from lightest to darkest
+
+#### Teal
+- `--teal` (scale 5): oklch(0.82 0.08 185) - Base teal
+- `--teal-1` through `--teal-9`: Full scale from lightest to darkest
+
+#### Blue
+- `--blue` (scale 5): oklch(0.5 0.28 270) - Base blue
+- `--blue-1` through `--blue-9`: Full scale from lightest to darkest
+
+#### Neutral Gray
+- `--gray-1` through `--gray-9`: Neutral gray scale from lightest to darkest (no base color variable)
 
 ### Theming (light-dark mode)
 - `--fg`: Foreground color (auto switches: black in light, white in dark)
@@ -157,6 +195,53 @@ Vertical flexbox with gap
 /* Customize with --gap variable */
 ```
 
+### `.layout-cluster`
+Horizontal wrapping flexbox layout, perfect for tags, pills, and breadcrumbs
+```css
+/* Usage */
+<div class="layout-cluster">
+  <span>Tag 1</span>
+  <span>Tag 2</span>
+  <span>Tag 3</span>
+</div>
+
+/* Customize gap */
+<div class="layout-cluster" style="--gap: 0.5rem;">
+```
+
+### `.layout-carousel`
+Horizontal scrolling with CSS scroll-snap (no JavaScript required)
+```css
+/* Usage */
+<div class="layout-carousel">
+  <div>Slide 1</div>
+  <div>Slide 2</div>
+  <div>Slide 3</div>
+</div>
+
+/* Features */
+/* - scroll-snap-type: x mandatory */
+/* - overflow-x: auto */
+/* - Smooth scrolling with scroll-snap-align: start */
+```
+
+### `.layout-reel`
+Vertical scrolling with CSS scroll-snap (no JavaScript required)
+```css
+/* Usage */
+<div class="layout-reel" style="--reel-height: 400px">
+  <div>Panel 1</div>
+  <div>Panel 2</div>
+  <div>Panel 3</div>
+</div>
+
+/* Features */
+/* - scroll-snap-type: y mandatory */
+/* - overflow-y: auto */
+/* - Customizable height with --reel-height variable */
+/* - Smooth scrolling with scroll-snap-align: start */
+```
+
 ## Utility Classes
 
 ### Display & Layout
@@ -184,6 +269,32 @@ Vertical flexbox with gap
 ### Button
 - `.button`: Button styling for links and non-button elements
 
+### Aspect Ratio Utilities
+Maintain specific aspect ratios for containers (useful for images, videos, cards):
+- `.aspect-square`: 1:1 aspect ratio
+- `.aspect-video`: 16:9 aspect ratio (standard video)
+- `.aspect-4-3`: 4:3 aspect ratio (classic TV)
+- `.aspect-21-9`: 21:9 aspect ratio (ultrawide)
+- Custom: Use `aspect-ratio: var(--aspect-ratio)` or `aspect-ratio: 2 / 1`
+
+### Form Validation States
+Built-in styles for form inputs and messages:
+- `.error`: Red border/color for error state (inputs and text)
+- `.success`: Green border/color for success state (inputs and text)
+- `.warning`: Orange border/color for warning state (inputs and text)
+
+Usage:
+```html
+<input class="error" />
+<small class="error">Error message</small>
+
+<input class="success" />
+<small class="success">Success message</small>
+
+<input class="warning" />
+<small class="warning">Warning message</small>
+```
+
 ## How It Works
 
 ### Fluid Typography System
@@ -209,14 +320,84 @@ Add `.fc` to a container to make child typography responsive to container width 
 </div>
 ```
 
+### OKLCH Color System
+Graffiti uses the OKLCH color space for perceptually uniform colors:
+
+**Why OKLCH?**
+- Perceptually uniform: Equal numeric changes = equal visual changes
+- Wide color gamut support (P3 displays)
+- Better interpolation than RGB/HSL
+- Predictable lightness adjustments
+
+**Automatic Color Scales**
+Each color has a 1-9 scale generated using relative color syntax:
+```css
+/* Base color (scale 5) */
+--yellow: oklch(0.88 0.15 95);
+
+/* Lighter shades (1-4) */
+--yellow-1: oklch(from var(--yellow) calc(l + 0.10) calc(c * 0.3) h);
+--yellow-2: oklch(from var(--yellow) calc(l + 0.06) calc(c * 0.5) h);
+/* ... */
+
+/* Darker shades (6-9) */
+--yellow-6: oklch(from var(--yellow) calc(l - 0.08) calc(c * 1.1) h);
+--yellow-9: oklch(from var(--yellow) calc(l - 0.32) calc(c * 0.9) h);
+```
+
+Scale 5 is always the base color. Lower numbers are lighter, higher are darker.
+
 ### Theming
 Uses `light-dark()` function for automatic color scheme switching:
 - `color-scheme: light dark` enables auto detection
 - All theme colors automatically adapt
 - Shadows become deeper in dark mode
 
+### CSS Scroll-Snap Layouts
+Carousel and reel use native CSS scroll-snap for smooth scrolling:
+- No JavaScript required
+- Native browser performance
+- Touch/trackpad/mouse wheel support
+- Accessibility keyboard navigation
+
+### Logical Properties
+Framework uses logical properties throughout for RTL/LTR support:
+- `inset-block-start` instead of `top`
+- `margin-inline-start` instead of `margin-left`
+- `padding-block` instead of `padding-top/bottom`
+- Full bidirectional text support
+
 ### Layout Philosophy
 - Mobile-first responsive design
 - CSS Grid-based layouts
+- CSS scroll-snap for carousels and reels
 - Customize via CSS variables (--gap, --min-card-width, etc.)
 - Minimal, composable classes
+- No JavaScript dependencies
+
+## Browser Support
+
+Graffiti requires modern browsers for full functionality:
+
+**Minimum versions:**
+- Chrome 123+ (March 2024)
+- Safari 17.5+ (May 2024)
+- Firefox 128+ (July 2024)
+- Edge 123+ (March 2024)
+
+**Critical features:**
+- OKLCH color space: Chrome 111+, Safari 15.4+, Firefox 113+
+- Relative color syntax: Chrome 119+, Safari 16.4+, Firefox 128+
+- `light-dark()` function: Chrome 123+, Safari 17.5+, Firefox 120+
+- Container queries: Chrome 105+, Safari 16.0+, Firefox 110+
+- `linear()` easing: Chrome 113+, Safari 17.2+, Firefox 112+
+- Logical properties: Chrome 89+, Safari 15+, Firefox 66+
+- CSS scroll-snap: Chrome 69+, Safari 11+, Firefox 68+
+
+**Graceful degradation:**
+Use `@supports` queries for progressive enhancement:
+```css
+@supports (color: oklch(0.5 0.2 180)) {
+  /* OKLCH styles */
+}
+```

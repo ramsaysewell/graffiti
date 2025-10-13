@@ -125,6 +125,36 @@ Fluid typography that scales automatically between viewport sizes:
 </div>
 ```
 
+**Cluster (horizontal wrapping):**
+```html
+<div class="layout-cluster">
+  <span>Tag 1</span>
+  <span>Tag 2</span>
+  <span>Tag 3</span>
+</div>
+<!-- Perfect for tags, pills, breadcrumbs -->
+```
+
+**Carousel (horizontal scroll-snap):**
+```html
+<div class="layout-carousel">
+  <div>Slide 1</div>
+  <div>Slide 2</div>
+  <div>Slide 3</div>
+</div>
+<!-- CSS scroll-snap, no JavaScript required -->
+```
+
+**Reel (vertical scroll-snap):**
+```html
+<div class="layout-reel" style="--reel-height: 400px">
+  <div>Panel 1</div>
+  <div>Panel 2</div>
+  <div>Panel 3</div>
+</div>
+<!-- Vertical scrolling with CSS scroll-snap -->
+```
+
 ### Utilities
 
 **Display utilities:**
@@ -138,6 +168,27 @@ Fluid typography that scales automatically between viewport sizes:
 ```html
 <div class="box-1">Subtle box</div>
 <div class="box-2">Semi-gloss box</div>
+```
+
+**Aspect ratio utilities:**
+```html
+<div class="aspect-square">1:1</div>
+<div class="aspect-video">16:9</div>
+<div class="aspect-4-3">4:3</div>
+<div class="aspect-21-9">21:9</div>
+<!-- Or use custom: aspect-ratio: var(--aspect-ratio) -->
+```
+
+**Form validation states:**
+```html
+<input class="error" />
+<small class="error">Error message</small>
+
+<input class="success" />
+<small class="success">Success message</small>
+
+<input class="warning" />
+<small class="warning">Warning message</small>
 ```
 
 **Other utilities:**
@@ -170,18 +221,58 @@ Fluid typography that scales automatically between viewport sizes:
 - Spacing: `--vs-s`, `--vs-base`, `--vs-m`, `--vs-l`
 - Border radius: `--br-xs`, `--br-s`, `--br-m`, `--br-l`
 - Padding: `--pad-xs`, `--pad-s`, `--pad-m`, `--pad-l`
+- Line heights: `--lh-tight`, `--lh-normal`, `--lh-loose`
 - Shadows: `--shadow-1` through `--shadow-6`
-- Colors: `--yellow`, `--orange`, `--red`, `--pink`, `--teal`, `--blue`
+- Easing: `--ease-smooth`, `--ease-bounce`, `--ease-emphasized`
+- **OKLCH Colors** (1-9 scales, base color = scale 5):
+  - Yellow: `--yellow`, `--yellow-1` through `--yellow-9`
+  - Orange: `--orange`, `--orange-1` through `--orange-9`
+  - Red: `--red`, `--red-1` through `--red-9`
+  - Pink: `--pink`, `--pink-1` through `--pink-9`
+  - Green: `--green`, `--green-1` through `--green-9`
+  - Teal: `--teal`, `--teal-1` through `--teal-9`
+  - Blue: `--blue`, `--blue-1` through `--blue-9`
+  - Gray: `--gray-1` through `--gray-9`
 - Theme: `--fg`, `--bg`, `--tint-or-shade`, `--tint-or-shade-harder`
 
 ## Features
 
-- **Fluid Typography**: Automatically scales between min/max viewport sizes
-- **Container Queries**: Typography can respond to container width
-- **Auto Dark Mode**: Uses `light-dark()` with `color-scheme`
+- **Fluid Typography**: Automatically scales between min/max viewport sizes using `clamp()` and `pow()`
+- **Container Queries**: Typography can respond to container width with `.fc` class
+- **OKLCH Color System**: Perceptually uniform colors with automatic 1-9 scales using relative color syntax
+- **Auto Dark Mode**: Uses `light-dark()` with `color-scheme` for automatic theming
+- **CSS Scroll-Snap Layouts**: Carousel and reel patterns with no JavaScript required
+- **Form Validation States**: Built-in error, success, and warning styles
+- **Modern Layout Patterns**: Cluster, carousel, reel, holy grail, and more
+- **Design Tokens**: Comprehensive spacing, shadows, colors, line heights, and easing functions
+- **Logical Properties**: Full RTL/LTR support throughout
 - **Minimal & Composable**: Small footprint, mix and match classes
-- **CSS Grid Layouts**: Modern, responsive layout system
-- **Design Tokens**: Consistent spacing, shadows, and colors via CSS variables
+
+## Browser Support
+
+Graffiti uses modern CSS features and requires recent browser versions:
+
+**Minimum versions:**
+- Chrome 123+ (March 2024)
+- Safari 17.5+ (May 2024)
+- Firefox 128+ (July 2024)
+- Edge 123+ (March 2024)
+
+**Key features requiring modern browsers:**
+- OKLCH color space with relative color syntax
+- `light-dark()` function for automatic theming
+- Container queries for responsive typography
+- `linear()` easing functions
+- Logical properties for RTL/LTR support
+
+**Graceful degradation:**
+While these features enhance the experience, basic layout and typography will work in older browsers. Consider using `@supports` queries if you need to support older browsers:
+
+```css
+@supports (color: oklch(0.5 0.2 180)) {
+  /* OKLCH color styles */
+}
+```
 
 ## Documentation
 
