@@ -731,16 +731,30 @@ label {
     }
 }
 
-.box-1 {
+.box {
     background: var(--tint-or-shade);
-    padding: 1rem;
+    padding: var(--pad-m);
+    border-radius: var(--br-s);
+    border: 1px solid var(--tint-or-shade-harder);
+}
+
+.box-ghost {
+    background: transparent;
+    padding: var(--pad-m);
+    border-radius: var(--br-s);
+    border: 1px solid var(--tint-or-shade-harder);
+}
+
+.box-glow {
+    background: var(--tint-or-shade);
+    padding: var(--pad-m);
     border-radius: var(--br-s);
     box-shadow: var(--box);
 }
 
-.box-2 {
+.box-semi-gloss {
     background: var(--tint-or-shade);
-    padding: 1rem;
+    padding: var(--pad-m);
     border-radius: var(--br-s);
     box-shadow: var(--box), var(--shadow-5);
     background: linear-gradient(
