@@ -240,6 +240,7 @@ Fluid typography that scales automatically between viewport sizes:
   - Teal: `--teal`, `--teal-1` through `--teal-9`
   - Green: `--green`, `--green-1` through `--green-9`
   - Lime: `--lime`, `--lime-1` through `--lime-9`
+  - Highlighter: `--highlighter`, `--highlighter-1` through `--highlighter-9`
   - Brown: `--brown`, `--brown-1` through `--brown-9`
   - Gray: `--gray-1` through `--gray-9`
   - Slate: `--slate`, `--slate-1` through `--slate-9`

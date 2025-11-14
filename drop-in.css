@@ -23,10 +23,13 @@
     --br-l: 16px;
 
     /* Padding */
-    --pad-xs: 2px;
-    --pad-s: 6px;
-    --pad-m: 12px;
-    --pad-l: 25px;
+    --pad-xs: 0.25rem;
+    --pad-s: 0.5rem;
+    --pad-m: 0.75rem;
+    --pad-l: 1rem;
+    --pad-xl: 1.5rem;
+    --pad-xxl: 2rem;
+    --pad-xxxl: 4rem;
 
     /* Shadows - Layered, adaptive shadows with light/dark mode support */
     --shadow-1: 0 1px 2px rgb(0 0 0 / 0.04);
@@ -294,6 +297,8 @@
         1
     );
 
+    --primary: var(--blue);
+
     color-scheme: light dark;
 }
 
@@ -331,7 +336,7 @@ footer {
 
 body {
     font-family: var(--font-sans);
-    line-height: 1.5;
+    line-height: var(--lh-normal);
     margin: 0;
     min-height: 100vh;
 }
@@ -350,6 +355,7 @@ textarea,
 input,
 select,
 button,
+a,
 th,
 td {
     /* Fluid Typography System
@@ -421,11 +427,13 @@ h6,
 .h6 {
     --fl: 0;
 }
+
 p,
 li,
 body,
 input,
 textarea,
+button,
 select {
     --fl: 0;
 }
@@ -463,22 +471,21 @@ svg {
     max-width: 100%;
 }
 
-input,
-button,
-textarea,
-select {
-    font: inherit;
-    margin: 0;
-}
-
 button,
 .button {
+    appearance: none;
+    margin: 0;
     cursor: pointer;
-    background: var(--bg);
+    background: var(--gray-2);
     color: var(--fg);
+    display: inline-flex;
+    justify-content: center;
+    gap: var(--gap, 1rem);
+    align-items: center;
+    line-height: var(--lh-normal);
     border: solid 1px var(--tint-or-shade);
     border-radius: var(--br-s);
-    padding: var(--pad-m) var(--pad-l);
+    padding: var(--pad-s) var(--pad-xl);
     text-decoration: none;
     &:hover {
         background: var(--tint-or-shade);
@@ -493,6 +500,16 @@ button,
     &:focus-visible {
         outline: 2px solid var(--fg);
         outline-offset: 2px;
+    }
+    &.mini {
+        --fl: 0;
+        padding: var(--pad-xs) var(--pad-s);
+    }
+    &:active {
+        translate: 0 1px;
+    }
+    &.primary {
+        background: var(--primary);
     }
 }
 
@@ -730,6 +747,12 @@ label {
     display: grid;
     grid-template-columns: auto 1fr auto;
     gap: var(--layout-gap, var(--gap, 2rem));
+}
+
+@media (width < 768px) {
+    .layout-holy-grail {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Full Bleed - Break out of readable container */

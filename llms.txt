@@ -113,6 +113,10 @@ Base colors are scale 5. Lower numbers are lighter, higher numbers are darker.
 - `--lime` (scale 5): oklch(0.80 0.16 130) - Base lime
 - `--lime-1` through `--lime-9`: Full scale from lightest to darkest
 
+#### Highlighter
+- `--highlighter` (scale 5): oklch(0.88 0.22 115) - Base highlighter (bright tennis ball green)
+- `--highlighter-1` through `--highlighter-9`: Full scale from lightest to darkest
+
 #### Brown
 - `--brown` (scale 5): oklch(0.55 0.12 60) - Base brown
 - `--brown-1` through `--brown-9`: Full scale from lightest to darkest
