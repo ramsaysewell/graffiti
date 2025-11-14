@@ -1,5 +1,11 @@
 # @drop-in/graffiti
 
+## 3.0.1
+
+### Patch Changes
+
+- Fixes Holy grail mobile
+
 ## 3.0.0
 
 ### Major Changes
@@ -20,7 +26,6 @@
   - .box-glow
   - .box-semi-gloss
   - .box-semi-ghost
-
 
 ### Minor Changes
 
