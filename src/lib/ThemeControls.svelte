@@ -4,7 +4,7 @@
 
   let { theme_values = $bindable() }: { theme_values: ThemeValues } = $props();
 
-  let theming = $state(true);
+  let theming = $state(false);
 </script>
 
 <div class="theme-controls">
