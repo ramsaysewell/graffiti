@@ -6,3 +6,4 @@ npm-debug.log
 yarn-error.log
 .claude
 CLAUDE.md
+.svelte-kit
