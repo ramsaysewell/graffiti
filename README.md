@@ -256,7 +256,7 @@ Fluid typography that scales automatically between viewport sizes:
   padding: var(--pad-m);
   border-radius: var(--br-s);
   box-shadow: var(--shadow-3);
-  background: var(--tint-or-shade);
+  background: var(--fg-05);
 }
 ```
 
@@ -283,7 +283,7 @@ Fluid typography that scales automatically between viewport sizes:
   - Brown: `--brown`, `--brown-1` through `--brown-9`
   - Gray: `--gray-1` through `--gray-9`
   - Slate: `--slate`, `--slate-1` through `--slate-9`
-- Theme: `--fg`, `--bg`, `--tint-or-shade`, `--tint-or-shade-harder`
+- Theme: `--fg`, `--bg`, `--fg-05`, `--fg-1`
 
 ## Features
 

@@ -1,5 +1,13 @@
 # @drop-in/graffiti
 
+## 4.0.0
+
+### Major Changes
+
+- - Removes tint-or-shade in favor of --fg-# vars
+  - Adds initial border vars
+  - Connects more vars throughout codebase
+
 ## 3.1.0
 
 ### Minor Changes

@@ -229,6 +229,7 @@
     --slate-9: var(--slate);
 
     --fg: light-dark(#000, #fff);
+    --fg-05: oklch(from var(--fg) l c h / 0.05);
     --fg-1: oklch(from var(--fg) l c h / 0.1);
     --fg-2: oklch(from var(--fg) l c h / 0.2);
     --fg-3: oklch(from var(--fg) l c h / 0.3);
@@ -241,8 +242,8 @@
 
     --bg: light-dark(#fff, #000);
 
-    --tint-or-shade: color-mix(in oklab, var(--fg), transparent 95%);
-    --tint-or-shade-harder: color-mix(in oklab, var(--fg), transparent 90%);
+    --fg-05: color-mix(in oklab, var(--fg), transparent 95%);
+    --fg-1: color-mix(in oklab, var(--fg), transparent 90%);
 
     /* Fluid Type */
     --font-size-min: 14;
@@ -256,6 +257,11 @@
     --lh-tight: 1.2;
     --lh-normal: 1.5;
     --lh-loose: 1.8;
+
+    /* Border Tokens */
+    --border-05: solid 1px var(--fg-05);
+    --border-1: solid 1px var(--fg-2);
+    --border-2: solid 2px var(--fg-2);
 
     /* Easing Tokens - Using linear() for modern, natural motion */
     --ease-smooth: linear(
@@ -493,15 +499,15 @@ button,
     gap: var(--gap, 1rem);
     align-items: center;
     line-height: var(--lh-normal);
-    border: solid 1px var(--tint-or-shade);
+    border: var(--border-05);
     border-radius: var(--br-s);
     padding: var(--pad-s) var(--pad-xl);
     text-decoration: none;
     &:hover {
-        background: var(--tint-or-shade);
+        background: var(--fg-05);
     }
     &:active {
-        background: var(--tint-or-shade-harder);
+        background: var(--fg-1);
     }
     &:disabled {
         opacity: 0.5;
@@ -851,36 +857,32 @@ label {
 /* Boxes */
 
 .box {
-    background: var(--tint-or-shade);
+    background: var(--fg-05);
     padding: var(--pad-m);
     border-radius: var(--br-s);
-    border: 1px solid var(--tint-or-shade-harder);
+    border: var(--border-1);
 }
 
 .box-ghost {
     background: transparent;
     padding: var(--pad-m);
     border-radius: var(--br-s);
-    border: 1px solid var(--tint-or-shade-harder);
+    border: var(--border-1);
 }
 
 .box-glow {
-    background: var(--tint-or-shade);
+    background: var(--fg-05);
     padding: var(--pad-m);
     border-radius: var(--br-s);
     box-shadow: var(--box);
 }
 
 .box-semi-gloss {
-    background: var(--tint-or-shade);
+    background: var(--fg-05);
     padding: var(--pad-m);
     border-radius: var(--br-s);
     box-shadow: var(--box), var(--shadow-5);
-    background: linear-gradient(
-        180deg,
-        var(--tint-or-shade) 0%,
-        var(--tint-or-shade-harder) 100%
-    );
+    background: linear-gradient(180deg, var(--fg-05) 0%, var(--fg-1) 100%);
 }
 
 /* UI Elements */
@@ -913,7 +915,7 @@ label {
         }
     }
     &.border {
-        border-bottom: solid 1px var(--gray-4);
+        border-bottom: var(--border-1);
     }
     &.sticky {
         position: sticky;
@@ -961,5 +963,36 @@ label {
 
     &.hard {
         border-inline-start: 6px solid var(--callout-border-color);
+    }
+}
+
+.table {
+    overflow-x: auto;
+    border: var(--border-2);
+    border-radius: var(--table-border, var(--br-m));
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    text-align: left;
+    padding: var(--pad-m) var(--vs-base);
+}
+
+thead {
+    border-bottom: var(--border-2);
+}
+
+td {
+    border-bottom: var(--border-1);
+}
+
+tr:last-child {
+    td {
+        border: none;
     }
 }
