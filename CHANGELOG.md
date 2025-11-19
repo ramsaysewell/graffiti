@@ -1,5 +1,11 @@
 # @drop-in/graffiti
 
+## 4.2.0
+
+### Minor Changes
+
+- Adds .swipe class giving swipe components with ZERO js
+
 ## 4.1.0
 
 ### Minor Changes
