@@ -403,6 +403,7 @@
         </div>
         <button style="background: var(--green);">✅</button>
       </div>
+
       <h3>.swipe.stop.full-bleed</h3>
       <p>Swiper that stays in it's "open" state.</p>
       <div class="swipe stop full-bleed">
@@ -414,6 +415,24 @@
           </p>
         </div>
         <button style="background: var(--green);">✅</button>
+      </div>
+
+      <p>You can have multiple buttons of various styles too.</p>
+      <div class="swipe stop full-bleed">
+        <div class="split even" style="--gap: 10px; padding: var(--pad-m)">
+          <button style="height: 100%">Hide</button>
+          <button style="height: 100%">Save</button>
+        </div>
+        <div style="min-height: 100px" {@attach scroll_on_load}>
+          <p>
+            You can swipe me side to side, no JavaScript. (although you do need
+            JS for events)
+          </p>
+        </div>
+        <div class="split even" style="--gap: 10px; padding: var(--pad-m)">
+          <button style="height: 100%">Up</button>
+          <button style="height: 100%">Down</button>
+        </div>
       </div>
     </section>
 

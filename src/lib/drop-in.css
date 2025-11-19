@@ -606,6 +606,9 @@ label {
   gap: 20px;
   align-items: start;
   justify-content: space-between;
+  &.even {
+    flex: 1 1 auto;
+  }
 }
 
 .visually-hidden {
@@ -847,7 +850,7 @@ label {
   -ms-overflow-style: none;
   scrollbar-width: none;
 
-  > div {
+  > :nth-child(2) {
     width: 100cqw;
     scroll-snap-align: center;
     padding: var(--pad-l) var(--vs-base);
@@ -860,7 +863,7 @@ label {
     width: 200px;
   }
   &.stop {
-    > button {
+    > * {
       &:first-of-type {
         animation: snap_start_hack 0.001s forwards;
       }
