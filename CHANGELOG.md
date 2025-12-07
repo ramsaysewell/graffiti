@@ -1,5 +1,14 @@
 # @drop-in/graffiti
 
+## 4.3.0
+
+### Minor Changes
+
+- Added new color scales and default input styles:
+  - Added `--white` and `--black` static color scales (do not change with light/dark mode)
+  - Added `--bg` scale (`--bg-05`, `--bg-1` through `--bg-9`) for contrasting tints that adapt to light/dark mode
+  - Added default input styles for `input`, `select`, and `textarea` elements
+
 ## 4.2.0
 
 ### Minor Changes

@@ -1391,6 +1391,40 @@
             </div>
           </div>
         </div>
+
+        <div class="stack">
+          <h4>White Scale (Static)</h4>
+          <p class="fs-xs">Does not change with light/dark mode. Use --fg/--bg for adaptive colors.</p>
+          <div class="color light" style="background: var(--white)">--white</div>
+          <div class="cluster">
+            <div class="color" style="background: var(--white-1)">--white-1</div>
+            <div class="color" style="background: var(--white-2)">--white-2</div>
+            <div class="color" style="background: var(--white-3)">--white-3</div>
+            <div class="color" style="background: var(--white-4)">--white-4</div>
+            <div class="color" style="background: var(--white-5)">--white-5</div>
+            <div class="color" style="background: var(--white-6)">--white-6</div>
+            <div class="color light" style="background: var(--white-7)">--white-7</div>
+            <div class="color light" style="background: var(--white-8)">--white-8</div>
+            <div class="color light" style="background: var(--white-9)">--white-9</div>
+          </div>
+        </div>
+
+        <div class="stack">
+          <h4>Black Scale (Static)</h4>
+          <p class="fs-xs">Does not change with light/dark mode. Use --fg/--bg for adaptive colors.</p>
+          <div class="color" style="background: var(--black); color: var(--white)">--black</div>
+          <div class="cluster">
+            <div class="color" style="background: var(--black-1)">--black-1</div>
+            <div class="color" style="background: var(--black-2)">--black-2</div>
+            <div class="color" style="background: var(--black-3)">--black-3</div>
+            <div class="color" style="background: var(--black-4)">--black-4</div>
+            <div class="color" style="background: var(--black-5)">--black-5</div>
+            <div class="color" style="background: var(--black-6)">--black-6</div>
+            <div class="color" style="background: var(--black-7)">--black-7</div>
+            <div class="color" style="background: var(--black-8)">--black-8</div>
+            <div class="color" style="background: var(--black-9); color: var(--white)">--black-9</div>
+          </div>
+        </div>
       </div>
 
       <div class="stack">
@@ -1407,6 +1441,7 @@
 
       <div class="stack">
         <h4>Foreground Scale</h4>
+        <p class="fs-xs">Contrasting shades that automatically adapt to light/dark mode. Great for borders, subtle backgrounds, and text emphasis.</p>
         <div class="color light" style="background: var(--fg)">--fg</div>
         <div class="cluster">
           <div class="color" style="background: var(--fg-05)">--fg-05</div>
@@ -1419,6 +1454,24 @@
           <div class="color light" style="background: var(--fg-7)">--fg-7</div>
           <div class="color light" style="background: var(--fg-8)">--fg-8</div>
           <div class="color light" style="background: var(--fg-9)">--fg-9</div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h4>Background Scale</h4>
+        <p class="fs-xs">Contrasting tints that automatically adapt to light/dark mode. Useful for layered surfaces and subtle overlays.</p>
+        <div class="color" style="background: var(--bg); border: var(--border-1)">--bg</div>
+        <div class="cluster">
+          <div class="color" style="background: var(--bg-05)">--bg-05</div>
+          <div class="color" style="background: var(--bg-1)">--bg-1</div>
+          <div class="color" style="background: var(--bg-2)">--bg-2</div>
+          <div class="color" style="background: var(--bg-3)">--bg-3</div>
+          <div class="color" style="background: var(--bg-4)">--bg-4</div>
+          <div class="color" style="background: var(--bg-5)">--bg-5</div>
+          <div class="color" style="background: var(--bg-6)">--bg-6</div>
+          <div class="color" style="background: var(--bg-7)">--bg-7</div>
+          <div class="color" style="background: var(--bg-8)">--bg-8</div>
+          <div class="color" style="background: var(--bg-9); border: var(--border-1)">--bg-9</div>
         </div>
       </div>
     </section>

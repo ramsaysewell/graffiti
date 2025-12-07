@@ -11,7 +11,9 @@
     "./decks.css": "./dist/decks.css",
     "./svelte": "./dist/svelte.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "license": "ISC",
   "main": "drop-in.css",
   "name": "@drop-in/graffiti",
@@ -22,17 +24,18 @@
     "package": "svelte-kit sync && svelte-package"
   },
   "type": "module",
-  "version": "4.2.0",
+  "version": "4.3.1",
   "publishConfig": {
     "access": "public",
     "directory": "."
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.8",
     "@eslint/compat": "^1.4.0",
     "@eslint/js": "^9.38.0",
     "@sveltejs/adapter-auto": "^7.0.0",
     "@sveltejs/kit": "^2.47.1",
-		"@sveltejs/package": "^2.5.2",
+    "@sveltejs/package": "^2.5.2",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@types/node": "^22",
     "eslint": "^9.38.0",

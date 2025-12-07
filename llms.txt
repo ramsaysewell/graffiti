@@ -133,11 +133,29 @@ Base colors are scale 5. Lower numbers are lighter, higher numbers are darker.
 - `--slate` (scale 5): oklch(0.52 0.04 255) - Base slate
 - `--slate-1` through `--slate-9`: Full scale from lightest to darkest
 
+#### White (Static)
+- `--white`: oklch(1 0 0) - Pure white
+- `--white-1` through `--white-9`: Full scale from most transparent to opaque
+
+#### Black (Static)
+- `--black`: oklch(0 0 0) - Pure black
+- `--black-1` through `--black-9`: Full scale from most transparent to opaque
+
+> **Note:** `--white` and `--black` are static colors that do NOT change with light/dark mode. In most cases, you should prefer `--fg` and `--bg` which automatically adapt to the user's color scheme. Only use `--white`/`--black` when you explicitly need a color that stays constant regardless of light/dark mode (e.g., text on a colored button background).
+
 ### Theming (light-dark mode)
 - `--fg`: Foreground color (auto switches: black in light, white in dark)
 - `--bg`: Background color (auto switches: white in light, black in dark)
-- `--fg-05`: 5% foreground mix (subtle backgrounds)
-- `--fg-1`: 10% foreground mix (stronger backgrounds)
+
+#### Foreground Scale
+Contrasting shades that automatically adapt to light/dark mode. Great for borders, subtle backgrounds, and text emphasis.
+- `--fg-05`: 5% foreground opacity
+- `--fg-1` through `--fg-9`: Full scale from most transparent to opaque
+
+#### Background Scale
+Contrasting tints that automatically adapt to light/dark mode. Useful for layered surfaces and subtle overlays.
+- `--bg-05`: 5% background opacity
+- `--bg-1` through `--bg-9`: Full scale from most transparent to opaque
 
 ### Layout Customization
 - `--gap`: Default gap for layout utilities (default: varies per layout)
