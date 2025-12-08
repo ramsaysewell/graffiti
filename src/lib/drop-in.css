@@ -359,6 +359,8 @@
   --warning: var(--yellow);
   --success: var(--green);
 
+  --l: clamp(0, (l / var(--l-threshold, 0.623) - 1) * -infinity, 1);
+
   color-scheme: light dark;
 }
 
@@ -540,6 +542,7 @@ button,
   cursor: pointer;
   background: var(--gray-2);
   color: var(--fg);
+  font-weight: 700;
   display: inline-flex;
   justify-content: center;
   gap: var(--gap, 1rem);
@@ -566,7 +569,7 @@ button,
   }
   &.mini {
     --fl: 0;
-    padding: var(--pad-xs) var(--pad-s);
+    padding: var(--pad-xs) var(--pad-m);
   }
   &:active {
     translate: 0 1px;
@@ -574,6 +577,23 @@ button,
   &.primary {
     background: var(--primary);
     color: var(--white);
+  }
+  &.error {
+    background: var(--error);
+    color: var(--white);
+  }
+  &.warning {
+    background: var(--warning);
+    color: var(--black);
+  }
+  &.success {
+    background: var(--success);
+    color: var(--white);
+  }
+  &.ghost {
+    background: transparent;
+    border: var(--fg) solid 2px;
+    color: var(--fg);
   }
 }
 

@@ -4,3 +4,12 @@ export type ThemeValues = {
   bg_light: string;
   bg_dark: string;
 };
+
+export type FontSettings = {
+  min_ratio: number;
+  max_ratio: number;
+  min_font_size: number;
+  max_font_size: number;
+  min_viewport: number;
+  max_viewport: number;
+};
