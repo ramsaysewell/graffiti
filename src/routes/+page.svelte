@@ -69,13 +69,10 @@
       font-weight: 400;
     }
 
-    .color {
+    .auto-color {
       padding: var(--pad-m) var(--pad-l);
       border-radius: var(--br-s);
       min-width: 150px;
-      &.light {
-        color: #000;
-      }
     }
   </style>
 
@@ -105,6 +102,7 @@
       class="layout-readable center stack"
       style="align-items: center; margin-block-end: 6rem"
     >
+      <p>Graffiti is good defaults with some magic tricks</p>
       <h2>Install</h2>
       <p class="code">npm install @drop-in/graffiti</p>
       <p>Then drop in to your project.</p>
@@ -1278,7 +1276,10 @@
             --highlighter
           </div>
           <div class="cluster">
-            <div class="color" style="background: var(--highlighter-1)">
+            <div
+              class="auto-color chroma"
+              style="--bg-color: var(--highlighter-1)"
+            >
               --highlighter-1
             </div>
             <div class="color" style="background: var(--highlighter-2)">
@@ -1293,7 +1294,7 @@
             <div class="color" style="background: var(--highlighter-5)">
               --highlighter-5
             </div>
-            <div class="color" style="background: var(--highlighter-6)">
+            <div class="color chroma" style="background: var(--highlighter-6)">
               --highlighter-6
             </div>
             <div class="color light" style="background: var(--highlighter-7)">
@@ -1302,7 +1303,7 @@
             <div class="color light" style="background: var(--highlighter-8)">
               --highlighter-8
             </div>
-            <div class="color light" style="background: var(--highlighter-9)">
+            <div class="auto-color" style="--bg-color: var(--highlighter-9)">
               --highlighter-9
             </div>
           </div>
@@ -1346,17 +1347,31 @@
           <h4>Teal Scale</h4>
           <div class="color light" style="background: var(--teal)">--teal</div>
           <div class="cluster">
-            <div class="color" style="background: var(--teal-1)">--teal-1</div>
-            <div class="color" style="background: var(--teal-2)">--teal-2</div>
-            <div class="color" style="background: var(--teal-3)">--teal-3</div>
-            <div class="color" style="background: var(--teal-4)">--teal-4</div>
-            <div class="color" style="background: var(--teal-5)">--teal-5</div>
-            <div class="color" style="background: var(--teal-6)">--teal-6</div>
-            <div class="color" style="background: var(--teal-7)">--teal-7</div>
-            <div class="color light" style="background: var(--teal-8)">
+            <div class="auto-color" style="--bg-color: var(--teal-1)">
+              --teal-1
+            </div>
+            <div class="auto-color chroma" style="--bg-color: var(--teal-2)">
+              --teal-2
+            </div>
+            <div class="auto-color chroma" style="--bg-color: var(--teal-3)">
+              --teal-3
+            </div>
+            <div class="auto-color chroma" style="--bg-color: var(--teal-4)">
+              --teal-4
+            </div>
+            <div class="auto-color" style="--bg-color: var(--teal-5)">
+              --teal-5
+            </div>
+            <div class="auto-color chroma" style="--bg-color: var(--teal-6)">
+              --teal-6
+            </div>
+            <div class="auto-color chroma" style="--bg-color: var(--teal-7)">
+              --teal-7
+            </div>
+            <div class="auto-color chroma" style="--bg-color: var(--teal-8)">
               --teal-8
             </div>
-            <div class="color light" style="background: var(--teal-9)">
+            <div class="auto-color chroma" style="--bg-color: var(--teal-9)">
               --teal-9
             </div>
           </div>
@@ -1421,13 +1436,13 @@
             --white
           </div>
           <div class="cluster">
-            <div class="color" style="background: var(--white-1)">
+            <div class="color auto-color" style="background: var(--white-1)">
               --white-1
             </div>
-            <div class="color" style="background: var(--white-2)">
+            <div class="color auto-color" style="background: var(--white-2)">
               --white-2
             </div>
-            <div class="color" style="background: var(--white-3)">
+            <div class="color auto-color" style="background: var(--white-3)">
               --white-3
             </div>
             <div class="color" style="background: var(--white-4)">

@@ -537,10 +537,11 @@ svg {
 
 button,
 .button {
+  --button-color: var(--gray-2);
   appearance: none;
   margin: 0;
   cursor: pointer;
-  background: var(--gray-2);
+  background: var(--button-color);
   color: var(--fg);
   font-weight: 700;
   display: inline-flex;
@@ -553,6 +554,7 @@ button,
   padding: var(--pad-s) var(--pad-xl);
   text-decoration: none;
   box-shadow: var(--input-shadow);
+  color: oklch(from var(--button-color) var(--l) 0 h);
   &:hover {
     background: var(--fg-05);
   }
@@ -1131,4 +1133,54 @@ textarea {
   border-image: initial;
   border-radius: var(--br-s);
   padding-inline: 10px;
+}
+
+.auto-color {
+  --threshold: 0.6;
+  --light-text-l: 1;
+  --dark-text-l: 0;
+  background-color: var(--bg-color);
+  color: light-dark(
+    oklch(
+      from var(--bg-color)
+        clamp(
+          var(--dark-text-l),
+          calc(((l * alpha + 1 - alpha) / var(--threshold) - 1) * -99999),
+          var(--light-text-l)
+        )
+        0 0 / 1
+    ),
+    oklch(
+      from var(--bg-color)
+        clamp(
+          var(--dark-text-l),
+          calc(((l * alpha) / var(--threshold) - 1) * -99999),
+          var(--light-text-l)
+        )
+        0 0 / 1
+    )
+  );
+
+  &.chroma {
+    color: light-dark(
+      oklch(
+        from var(--bg-color)
+          clamp(
+            var(--dark-text-l),
+            calc(((l * alpha + 1 - alpha) / var(--threshold) - 1) * -99999),
+            var(--light-text-l)
+          )
+          0 0 / 0.8
+      ),
+      oklch(
+        from var(--bg-color)
+          clamp(
+            var(--dark-text-l),
+            calc(((l * alpha) / var(--threshold) - 1) * -99999),
+            var(--light-text-l)
+          )
+          0 0 / 0.8
+      )
+    );
+  }
 }
