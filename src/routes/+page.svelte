@@ -20,6 +20,37 @@
     max_viewport: 1500,
   });
 
+  const colors = [
+    "yellow",
+    "amber",
+    "orange",
+    "red",
+    "pink",
+    "purple",
+    "indigo",
+    "blue",
+    "green",
+    "lime",
+    "highlighter",
+    "brown",
+    "teal",
+    "gray",
+    "slate",
+  ];
+
+  const static_colors = [
+    { name: "white", note: "Does not change with light/dark mode. Use --fg/--bg for adaptive colors." },
+    { name: "black", note: "Does not change with light/dark mode. Use --fg/--bg for adaptive colors." },
+  ];
+
+  const scale = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const scale_with_05 = ["05", 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const theming_scales = [
+    { name: "fg", label: "Foreground", note: "Contrasting shades that automatically adapt to light/dark mode. Great for borders, subtle backgrounds, and text emphasis." },
+    { name: "bg", label: "Background", note: "Contrasting tints that automatically adapt to light/dark mode. Useful for layered surfaces and subtle overlays." },
+  ];
+
   $effect(() => {
     const temp_root = document.documentElement;
     for (var key in theme_values) {
@@ -974,543 +1005,32 @@
           colors (scale 5) using relative color syntax
         </p>
 
-        <div class="stack">
-          <h4>Yellow Scale</h4>
-          <div class="color light" style="background: var(--yellow)">
-            --yellow (5)
-          </div>
-          <div class="cluster">
-            <div class="color" style="background: var(--yellow-1)">
-              --yellow-1
-            </div>
-            <div class="color" style="background: var(--yellow-2)">
-              --yellow-2
-            </div>
-            <div class="color" style="background: var(--yellow-3)">
-              --yellow-3
-            </div>
-            <div class="color" style="background: var(--yellow-4)">
-              --yellow-4
-            </div>
-            <div class="color" style="background: var(--yellow-5)">
-              --yellow-5
-            </div>
-            <div class="color" style="background: var(--yellow-6)">
-              --yellow-6
-            </div>
-            <div class="color light" style="background: var(--yellow-7)">
-              --yellow-7
-            </div>
-            <div class="color light" style="background: var(--yellow-8)">
-              --yellow-8
-            </div>
-            <div class="color light" style="background: var(--yellow-9)">
-              --yellow-9
+        {#each colors as color}
+          <div class="stack">
+            <h4>{color.charAt(0).toUpperCase() + color.slice(1)} Scale</h4>
+            {#if color !== "gray"}
+              <div class="auto-color" style="--bg-color: var(--{color})">--{color}</div>
+            {/if}
+            <div class="cluster">
+              {#each scale as n}
+                <div class="auto-color" style="--bg-color: var(--{color}-{n})">--{color}-{n}</div>
+              {/each}
             </div>
           </div>
-        </div>
+        {/each}
 
-        <div class="stack">
-          <h4>Amber Scale</h4>
-          <div class="color light" style="background: var(--amber)">
-            --amber
-          </div>
-          <div class="cluster">
-            <div class="color" style="background: var(--amber-1)">
-              --amber-1
-            </div>
-            <div class="color" style="background: var(--amber-2)">
-              --amber-2
-            </div>
-            <div class="color" style="background: var(--amber-3)">
-              --amber-3
-            </div>
-            <div class="color" style="background: var(--amber-4)">
-              --amber-4
-            </div>
-            <div class="color" style="background: var(--amber-5)">
-              --amber-5
-            </div>
-            <div class="color" style="background: var(--amber-6)">
-              --amber-6
-            </div>
-            <div class="color light" style="background: var(--amber-7)">
-              --amber-7
-            </div>
-            <div class="color light" style="background: var(--amber-8)">
-              --amber-8
-            </div>
-            <div class="color light" style="background: var(--amber-9)">
-              --amber-9
+        {#each static_colors as { name, note }}
+          <div class="stack">
+            <h4>{name.charAt(0).toUpperCase() + name.slice(1)} Scale (Static)</h4>
+            <p class="fs-xs">{note}</p>
+            <div class="auto-color" style="--bg-color: var(--{name})">--{name}</div>
+            <div class="cluster">
+              {#each scale as n}
+                <div class="auto-color" style="--bg-color: var(--{name}-{n})">--{name}-{n}</div>
+              {/each}
             </div>
           </div>
-        </div>
-
-        <div class="stack">
-          <h4>Orange Scale</h4>
-          <div class="color light" style="background: var(--orange)">
-            --orange
-          </div>
-          <div class="cluster">
-            <div class="color" style="background: var(--orange-1)">
-              --orange-1
-            </div>
-            <div class="color" style="background: var(--orange-2)">
-              --orange-2
-            </div>
-            <div class="color" style="background: var(--orange-3)">
-              --orange-3
-            </div>
-            <div class="color" style="background: var(--orange-4)">
-              --orange-4
-            </div>
-            <div class="color" style="background: var(--orange-5)">
-              --orange-5
-            </div>
-            <div class="color" style="background: var(--orange-6)">
-              --orange-6
-            </div>
-            <div class="color light" style="background: var(--orange-7)">
-              --orange-7
-            </div>
-            <div class="color light" style="background: var(--orange-8)">
-              --orange-8
-            </div>
-            <div class="color light" style="background: var(--orange-9)">
-              --orange-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Red Scale</h4>
-          <div class="color" style="background: var(--red)">--red</div>
-          <div class="cluster">
-            <div class="color" style="background: var(--red-1)">--red-1</div>
-            <div class="color" style="background: var(--red-2)">--red-2</div>
-            <div class="color" style="background: var(--red-3)">--red-3</div>
-            <div class="color" style="background: var(--red-4)">--red-4</div>
-            <div class="color" style="background: var(--red-5)">--red-5</div>
-            <div class="color" style="background: var(--red-6)">--red-6</div>
-            <div class="color light" style="background: var(--red-7)">
-              --red-7
-            </div>
-            <div class="color light" style="background: var(--red-8)">
-              --red-8
-            </div>
-            <div class="color light" style="background: var(--red-9)">
-              --red-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Pink Scale</h4>
-          <div class="color" style="background: var(--pink)">--pink</div>
-          <div class="cluster">
-            <div class="color" style="background: var(--pink-1)">--pink-1</div>
-            <div class="color" style="background: var(--pink-2)">--pink-2</div>
-            <div class="color" style="background: var(--pink-3)">--pink-3</div>
-            <div class="color" style="background: var(--pink-4)">--pink-4</div>
-            <div class="color" style="background: var(--pink-5)">--pink-5</div>
-            <div class="color" style="background: var(--pink-6)">--pink-6</div>
-            <div class="color light" style="background: var(--pink-7)">
-              --pink-7
-            </div>
-            <div class="color light" style="background: var(--pink-8)">
-              --pink-8
-            </div>
-            <div class="color light" style="background: var(--pink-9)">
-              --pink-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Purple Scale</h4>
-          <div class="color" style="background: var(--purple)">--purple</div>
-          <div class="cluster">
-            <div class="color" style="background: var(--purple-1)">
-              --purple-1
-            </div>
-            <div class="color" style="background: var(--purple-2)">
-              --purple-2
-            </div>
-            <div class="color" style="background: var(--purple-3)">
-              --purple-3
-            </div>
-            <div class="color" style="background: var(--purple-4)">
-              --purple-4
-            </div>
-            <div class="color" style="background: var(--purple-5)">
-              --purple-5
-            </div>
-            <div class="color" style="background: var(--purple-6)">
-              --purple-6
-            </div>
-            <div class="color" style="background: var(--purple-7)">
-              --purple-7
-            </div>
-            <div class="color light" style="background: var(--purple-8)">
-              --purple-8
-            </div>
-            <div class="color light" style="background: var(--purple-9)">
-              --purple-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Indigo Scale</h4>
-          <div class="color" style="background: var(--indigo)">--indigo</div>
-          <div class="cluster">
-            <div class="color" style="background: var(--indigo-1)">
-              --indigo-1
-            </div>
-            <div class="color" style="background: var(--indigo-2)">
-              --indigo-2
-            </div>
-            <div class="color" style="background: var(--indigo-3)">
-              --indigo-3
-            </div>
-            <div class="color" style="background: var(--indigo-4)">
-              --indigo-4
-            </div>
-            <div class="color" style="background: var(--indigo-5)">
-              --indigo-5
-            </div>
-            <div class="color" style="background: var(--indigo-6)">
-              --indigo-6
-            </div>
-            <div class="color" style="background: var(--indigo-7)">
-              --indigo-7
-            </div>
-            <div class="color" style="background: var(--indigo-8)">
-              --indigo-8
-            </div>
-            <div class="color light" style="background: var(--indigo-9)">
-              --indigo-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Blue Scale</h4>
-          <div class="color" style="background: var(--blue)">--blue</div>
-          <div class="cluster">
-            <div class="color" style="background: var(--blue-1)">--blue-1</div>
-            <div class="color" style="background: var(--blue-2)">--blue-2</div>
-            <div class="color" style="background: var(--blue-3)">--blue-3</div>
-            <div class="color" style="background: var(--blue-4)">--blue-4</div>
-            <div class="color" style="background: var(--blue-5)">--blue-5</div>
-            <div class="color" style="background: var(--blue-6)">--blue-6</div>
-            <div class="color" style="background: var(--blue-7)">--blue-7</div>
-            <div class="color" style="background: var(--blue-8)">--blue-8</div>
-            <div class="color light" style="background: var(--blue-9)">
-              --blue-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Green Scale</h4>
-          <div class="color light" style="background: var(--green)">
-            --green
-          </div>
-          <div class="cluster">
-            <div class="color" style="background: var(--green-1)">
-              --green-1
-            </div>
-            <div class="color" style="background: var(--green-2)">
-              --green-2
-            </div>
-            <div class="color" style="background: var(--green-3)">
-              --green-3
-            </div>
-            <div class="color" style="background: var(--green-4)">
-              --green-4
-            </div>
-            <div class="color" style="background: var(--green-5)">
-              --green-5
-            </div>
-            <div class="color" style="background: var(--green-6)">
-              --green-6
-            </div>
-            <div class="color" style="background: var(--green-7)">
-              --green-7
-            </div>
-            <div class="color" style="background: var(--green-8)">
-              --green-8
-            </div>
-            <div class="color light" style="background: var(--green-9)">
-              --green-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Lime Scale</h4>
-          <div class="color light" style="background: var(--lime)">--lime</div>
-          <div class="cluster">
-            <div class="color" style="background: var(--lime-1)">--lime-1</div>
-            <div class="color" style="background: var(--lime-2)">--lime-2</div>
-            <div class="color" style="background: var(--lime-3)">--lime-3</div>
-            <div class="color" style="background: var(--lime-4)">--lime-4</div>
-            <div class="color" style="background: var(--lime-5)">--lime-5</div>
-            <div class="color" style="background: var(--lime-6)">--lime-6</div>
-            <div class="color light" style="background: var(--lime-7)">
-              --lime-7
-            </div>
-            <div class="color light" style="background: var(--lime-8)">
-              --lime-8
-            </div>
-            <div class="color light" style="background: var(--lime-9)">
-              --lime-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Highlighter Scale</h4>
-          <div class="color light" style="background: var(--highlighter)">
-            --highlighter
-          </div>
-          <div class="cluster">
-            <div
-              class="auto-color chroma"
-              style="--bg-color: var(--highlighter-1)"
-            >
-              --highlighter-1
-            </div>
-            <div class="color" style="background: var(--highlighter-2)">
-              --highlighter-2
-            </div>
-            <div class="color" style="background: var(--highlighter-3)">
-              --highlighter-3
-            </div>
-            <div class="color" style="background: var(--highlighter-4)">
-              --highlighter-4
-            </div>
-            <div class="color" style="background: var(--highlighter-5)">
-              --highlighter-5
-            </div>
-            <div class="color chroma" style="background: var(--highlighter-6)">
-              --highlighter-6
-            </div>
-            <div class="color light" style="background: var(--highlighter-7)">
-              --highlighter-7
-            </div>
-            <div class="color light" style="background: var(--highlighter-8)">
-              --highlighter-8
-            </div>
-            <div class="auto-color" style="--bg-color: var(--highlighter-9)">
-              --highlighter-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Brown Scale</h4>
-          <div class="color" style="background: var(--brown)">--brown</div>
-          <div class="cluster">
-            <div class="color" style="background: var(--brown-1)">
-              --brown-1
-            </div>
-            <div class="color" style="background: var(--brown-2)">
-              --brown-2
-            </div>
-            <div class="color" style="background: var(--brown-3)">
-              --brown-3
-            </div>
-            <div class="color" style="background: var(--brown-4)">
-              --brown-4
-            </div>
-            <div class="color" style="background: var(--brown-5)">
-              --brown-5
-            </div>
-            <div class="color" style="background: var(--brown-6)">
-              --brown-6
-            </div>
-            <div class="color" style="background: var(--brown-7)">
-              --brown-7
-            </div>
-            <div class="color" style="background: var(--brown-8)">
-              --brown-8
-            </div>
-            <div class="color light" style="background: var(--brown-9)">
-              --brown-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Teal Scale</h4>
-          <div class="color light" style="background: var(--teal)">--teal</div>
-          <div class="cluster">
-            <div class="auto-color" style="--bg-color: var(--teal-1)">
-              --teal-1
-            </div>
-            <div class="auto-color chroma" style="--bg-color: var(--teal-2)">
-              --teal-2
-            </div>
-            <div class="auto-color chroma" style="--bg-color: var(--teal-3)">
-              --teal-3
-            </div>
-            <div class="auto-color chroma" style="--bg-color: var(--teal-4)">
-              --teal-4
-            </div>
-            <div class="auto-color" style="--bg-color: var(--teal-5)">
-              --teal-5
-            </div>
-            <div class="auto-color chroma" style="--bg-color: var(--teal-6)">
-              --teal-6
-            </div>
-            <div class="auto-color chroma" style="--bg-color: var(--teal-7)">
-              --teal-7
-            </div>
-            <div class="auto-color chroma" style="--bg-color: var(--teal-8)">
-              --teal-8
-            </div>
-            <div class="auto-color chroma" style="--bg-color: var(--teal-9)">
-              --teal-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Gray Scale</h4>
-          <div class="cluster">
-            <div class="color" style="background: var(--gray-1)">--gray-1</div>
-            <div class="color" style="background: var(--gray-2)">--gray-2</div>
-            <div class="color" style="background: var(--gray-3)">--gray-3</div>
-            <div class="color" style="background: var(--gray-4)">--gray-4</div>
-            <div class="color" style="background: var(--gray-5)">--gray-5</div>
-            <div class="color" style="background: var(--gray-6)">--gray-6</div>
-            <div class="color" style="background: var(--gray-7)">--gray-7</div>
-            <div class="color" style="background: var(--gray-8)">--gray-8</div>
-            <div class="color" style="background: var(--gray-9)">--gray-9</div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Slate Scale</h4>
-          <div class="color" style="background: var(--slate)">--slate</div>
-          <div class="cluster">
-            <div class="color" style="background: var(--slate-1)">
-              --slate-1
-            </div>
-            <div class="color" style="background: var(--slate-2)">
-              --slate-2
-            </div>
-            <div class="color" style="background: var(--slate-3)">
-              --slate-3
-            </div>
-            <div class="color" style="background: var(--slate-4)">
-              --slate-4
-            </div>
-            <div class="color" style="background: var(--slate-5)">
-              --slate-5
-            </div>
-            <div class="color" style="background: var(--slate-6)">
-              --slate-6
-            </div>
-            <div class="color" style="background: var(--slate-7)">
-              --slate-7
-            </div>
-            <div class="color" style="background: var(--slate-8)">
-              --slate-8
-            </div>
-            <div class="color" style="background: var(--slate-9)">
-              --slate-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>White Scale (Static)</h4>
-          <p class="fs-xs">
-            Does not change with light/dark mode. Use --fg/--bg for adaptive
-            colors.
-          </p>
-          <div class="color light" style="background: var(--white)">
-            --white
-          </div>
-          <div class="cluster">
-            <div class="color auto-color" style="background: var(--white-1)">
-              --white-1
-            </div>
-            <div class="color auto-color" style="background: var(--white-2)">
-              --white-2
-            </div>
-            <div class="color auto-color" style="background: var(--white-3)">
-              --white-3
-            </div>
-            <div class="color" style="background: var(--white-4)">
-              --white-4
-            </div>
-            <div class="color" style="background: var(--white-5)">
-              --white-5
-            </div>
-            <div class="color" style="background: var(--white-6)">
-              --white-6
-            </div>
-            <div class="color light" style="background: var(--white-7)">
-              --white-7
-            </div>
-            <div class="color light" style="background: var(--white-8)">
-              --white-8
-            </div>
-            <div class="color light" style="background: var(--white-9)">
-              --white-9
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <h4>Black Scale (Static)</h4>
-          <p class="fs-xs">
-            Does not change with light/dark mode. Use --fg/--bg for adaptive
-            colors.
-          </p>
-          <div
-            class="color"
-            style="background: var(--black); color: var(--white)"
-          >
-            --black
-          </div>
-          <div class="cluster">
-            <div class="color" style="background: var(--black-1)">
-              --black-1
-            </div>
-            <div class="color" style="background: var(--black-2)">
-              --black-2
-            </div>
-            <div class="color" style="background: var(--black-3)">
-              --black-3
-            </div>
-            <div class="color" style="background: var(--black-4)">
-              --black-4
-            </div>
-            <div class="color" style="background: var(--black-5)">
-              --black-5
-            </div>
-            <div class="color" style="background: var(--black-6)">
-              --black-6
-            </div>
-            <div class="color" style="background: var(--black-7)">
-              --black-7
-            </div>
-            <div class="color" style="background: var(--black-8)">
-              --black-8
-            </div>
-            <div
-              class="color"
-              style="background: var(--black-9); color: var(--white)"
-            >
-              --black-9
-            </div>
-          </div>
-        </div>
+        {/each}
       </div>
 
       <div class="stack">
@@ -1525,57 +1045,18 @@
         </div>
       </div>
 
-      <div class="stack">
-        <h4>Foreground Scale</h4>
-        <p class="fs-xs">
-          Contrasting shades that automatically adapt to light/dark mode. Great
-          for borders, subtle backgrounds, and text emphasis.
-        </p>
-        <div class="color light" style="background: var(--fg)">--fg</div>
-        <div class="cluster">
-          <div class="color" style="background: var(--fg-05)">--fg-05</div>
-          <div class="color" style="background: var(--fg-1)">--fg-1</div>
-          <div class="color" style="background: var(--fg-2)">--fg-2</div>
-          <div class="color" style="background: var(--fg-3)">--fg-3</div>
-          <div class="color" style="background: var(--fg-4)">--fg-4</div>
-          <div class="color" style="background: var(--fg-5)">--fg-5</div>
-          <div class="color light" style="background: var(--fg-6)">--fg-6</div>
-          <div class="color light" style="background: var(--fg-7)">--fg-7</div>
-          <div class="color light" style="background: var(--fg-8)">--fg-8</div>
-          <div class="color light" style="background: var(--fg-9)">--fg-9</div>
-        </div>
-      </div>
-
-      <div class="stack">
-        <h4>Background Scale</h4>
-        <p class="fs-xs">
-          Contrasting tints that automatically adapt to light/dark mode. Useful
-          for layered surfaces and subtle overlays.
-        </p>
-        <div
-          class="color"
-          style="background: var(--bg); border: var(--border-1)"
-        >
-          --bg
-        </div>
-        <div class="cluster">
-          <div class="color" style="background: var(--bg-05)">--bg-05</div>
-          <div class="color" style="background: var(--bg-1)">--bg-1</div>
-          <div class="color" style="background: var(--bg-2)">--bg-2</div>
-          <div class="color" style="background: var(--bg-3)">--bg-3</div>
-          <div class="color" style="background: var(--bg-4)">--bg-4</div>
-          <div class="color" style="background: var(--bg-5)">--bg-5</div>
-          <div class="color" style="background: var(--bg-6)">--bg-6</div>
-          <div class="color" style="background: var(--bg-7)">--bg-7</div>
-          <div class="color" style="background: var(--bg-8)">--bg-8</div>
-          <div
-            class="color"
-            style="background: var(--bg-9); border: var(--border-1)"
-          >
-            --bg-9
+      {#each theming_scales as { name, label, note }}
+        <div class="stack">
+          <h4>{label} Scale</h4>
+          <p class="fs-xs">{note}</p>
+          <div class="auto-color" style="--bg-color: var(--{name})">--{name}</div>
+          <div class="cluster">
+            {#each scale_with_05 as n}
+              <div class="auto-color" style="--bg-color: var(--{name}-{n})">--{name}-{n}</div>
+            {/each}
           </div>
         </div>
-      </div>
+      {/each}
     </section>
   </main>
 
