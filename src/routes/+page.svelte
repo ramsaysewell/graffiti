@@ -154,14 +154,15 @@
       </p>
     </section>
 
-    <!-- Typography Demos -->
-    <h2 class="heading">Typography</h2>
+    <!-- Base: Typography defaults + CSS Variables -->
+    <h2 class="heading">Base</h2>
+    <p>Foundation styles that work out of the box - no classes needed.</p>
     <section
       class="demo-section stack"
       style="margin-bottom: var(--vs-xl); --stack-gap: var(--vs-xl)"
     >
       <div>
-        <h3>Defaults</h3>
+        <h3>Typography Defaults</h3>
         <h1>H1 - Large Heading</h1>
         <h2>H2 - Med Heading</h2>
         <h3>H3 - Small Heading</h3>
@@ -176,39 +177,170 @@
         </p>
       </div>
 
-      <div>
-        <h3>Font Size Utilities</h3>
-        <p>
-          Apply fluid sizing to any element with
-          <code>.fs-*</code> classes
-        </p>
-        <div>
-          <p class="fs-xxxl">.fs-xxxl - Triple Extra Large</p>
-          <p class="fs-xxl">.fs-xxl - Double Extra Large</p>
-          <p class="fs-xl">.fs-xl - Extra Large</p>
-          <p class="fs-l">.fs-l - Large</p>
-          <p class="fs-m">.fs-m - Medium</p>
-          <p class="fs-s">.fs-s - Small</p>
-          <p class="fs-base">.fs-base - Base Size</p>
-          <p class="fs-xs">.fs-xs - Extra Small</p>
+      <div class="stack">
+        <h3>Vertical Spacing</h3>
+        <div class="layout-card" style="--min-card-width: 150px">
+          <div class="box" style="padding: var(--vs-s) var(--vs-s)">
+            --vs-s: 0.5rem
+          </div>
+          <div class="box" style="padding: var(--vs-base) var(--vs-s)">
+            --vs-base: 1rem
+          </div>
+          <div class="box" style="padding: var(--vs-m) var(--vs-s)">
+            --vs-m: 1.5rem
+          </div>
+          <div class="box" style="padding: var(--vs-l) var(--vs-s)">
+            --vs-l: 2rem
+          </div>
+          <div class="box" style="padding: var(--vs-xl) var(--vs-s)">
+            --vs-xl: 4rem
+          </div>
         </div>
       </div>
 
-      <div>
-        <h3>Heading Classes</h3>
-        <p>
-          Apply heading styles to non-heading elements with
-          <code>.h1</code> through <code>.h6</code>
-        </p>
-        <div>
-          <p class="h1">This is a p with .h1 class</p>
-          <p class="h2">This is a p with .h2 class</p>
-          <p class="h3">This is a p with .h3 class</p>
-          <p class="h4">This is a p with .h4 class</p>
-          <p class="h5">This is a p with .h5 class</p>
-          <p class="h6">This is a p with .h6 class</p>
+      <div class="stack">
+        <h3>Border Radius</h3>
+        <div class="layout-card" style="--min-card-width: 150px">
+          <div class="box" style="border-radius: var(--br-xs)">
+            --br-xs: 2px
+          </div>
+          <div class="box" style="border-radius: var(--br-s)">--br-s: 4px</div>
+          <div class="box" style="border-radius: var(--br-m)">--br-m: 8px</div>
+          <div class="box" style="border-radius: var(--br-l)">--br-l: 16px</div>
         </div>
       </div>
+
+      <div class="stack">
+        <h3>Border</h3>
+        <div class="stack">
+          <div style="border: var(--border-05)">--border-05</div>
+          <div style="border: var(--border-1)">--border-1</div>
+          <div style="border: var(--border-2)">--border-2</div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>Padding</h3>
+        <div class="layout-card" style="--min-card-width: 150px">
+          <div class="box" style="padding: var(--pad-xs)">--pad-xs: 2px</div>
+          <div class="box" style="padding: var(--pad-s)">--pad-s: 6px</div>
+          <div class="box" style="padding: var(--pad-m)">--pad-m: 12px</div>
+          <div class="box" style="padding: var(--pad-l)">--pad-l: 25px</div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>Line Heights</h3>
+        <p>Consistent line height tokens for better typography control</p>
+        <div class="stack">
+          <div class="box" style="line-height: var(--lh-tight)">
+            <strong>--lh-tight: 1.2</strong><br />
+            This is tight line height, useful for headings and display text where
+            you want compact vertical spacing. The quick brown fox jumps over the
+            lazy dog.
+          </div>
+          <div class="box" style="line-height: var(--lh-normal)">
+            <strong>--lh-normal: 1.5</strong><br />
+            This is normal line height, the default for body text. It provides comfortable
+            reading with balanced spacing. The quick brown fox jumps over the lazy
+            dog. The five boxing wizards jump quickly.
+          </div>
+          <div class="box" style="line-height: var(--lh-loose)">
+            <strong>--lh-loose: 1.8</strong><br />
+            This is loose line height, creating extra vertical breathing room. Useful
+            for larger body text or when you want more space between lines. The quick
+            brown fox jumps over the lazy dog.
+          </div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>Shadows</h3>
+        <p>
+          Modern layered shadows - subtle in light mode, deeper and more intense
+          in dark mode
+        </p>
+        <div class="layout-card" style="--min-card-width: 200px">
+          <div class="box" style="box-shadow: var(--shadow-1)">
+            --shadow-1<br />Subtle
+          </div>
+          <div class="box" style="box-shadow: var(--shadow-2)">
+            --shadow-2<br />Light lift
+          </div>
+          <div class="box" style="box-shadow: var(--shadow-3)">
+            --shadow-3<br />Moderate
+          </div>
+          <div class="box" style="box-shadow: var(--shadow-4)">
+            --shadow-4<br />Strong
+          </div>
+          <div class="box" style="box-shadow: var(--shadow-5)">
+            --shadow-5<br />Dramatic
+          </div>
+          <div class="box" style="box-shadow: var(--shadow-6)">
+            --shadow-6<br />Maximum
+          </div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>Colors</h3>
+        <p>
+          OKLCH color system with automatic 1-9 scales generated from base
+          colors (scale 5) using relative color syntax
+        </p>
+
+        {#each colors as color}
+          <div class="stack">
+            <h4>{color.charAt(0).toUpperCase() + color.slice(1)} Scale</h4>
+            {#if color !== "gray"}
+              <div class="auto-color" style="--bg-color: var(--{color})">--{color}</div>
+            {/if}
+            <div class="cluster">
+              {#each scale as n}
+                <div class="auto-color" style="--bg-color: var(--{color}-{n})">--{color}-{n}</div>
+              {/each}
+            </div>
+          </div>
+        {/each}
+
+        {#each static_colors as { name, note }}
+          <div class="stack">
+            <h4>{name.charAt(0).toUpperCase() + name.slice(1)} Scale (Static)</h4>
+            <p class="fs-xs">{note}</p>
+            <div class="auto-color" style="--bg-color: var(--{name})">--{name}</div>
+            <div class="cluster">
+              {#each scale as n}
+                <div class="auto-color" style="--bg-color: var(--{name}-{n})">--{name}-{n}</div>
+              {/each}
+            </div>
+          </div>
+        {/each}
+      </div>
+
+      <div class="stack">
+        <h3>Theming Variables</h3>
+        <div class="layout-split">
+          <div class="box" style="background: var(--fg); color: var(--bg)">
+            --fg<br />Foreground color
+          </div>
+          <div class="box" style="background: var(--bg); color: var(--fg)">
+            --bg<br />Background color
+          </div>
+        </div>
+      </div>
+
+      {#each theming_scales as { name, label, note }}
+        <div class="stack">
+          <h4>{label} Scale</h4>
+          <p class="fs-xs">{note}</p>
+          <div class="auto-color" style="--bg-color: var(--{name})">--{name}</div>
+          <div class="cluster">
+            {#each scale_with_05 as n}
+              <div class="auto-color" style="--bg-color: var(--{name}-{n})">--{name}-{n}</div>
+            {/each}
+          </div>
+        </div>
+      {/each}
     </section>
 
     <!-- Layout Card -->
@@ -443,6 +575,7 @@
 
     <!-- Elements Section -->
     <h2 class="heading">Elements</h2>
+    <p>Standalone building blocks you can use anywhere.</p>
     <section class="demo-section stack">
       <div class="stack">
         <h3>Boxes</h3>
@@ -473,57 +606,6 @@
           <button class="ghost">Ghost</button>
           <button class="mini">Mini Button</button>
         </div>
-      </div>
-
-      <div class="stack">
-        <h3>Form Validation States</h3>
-        <p>Built-in styles for error, success, and warning states</p>
-
-        <form class="stack" style="max-width: 500px">
-          <div class="stack" style="--gap: 0.5rem">
-            <label for="email-error">Email (error state)</label>
-            <input
-              type="email"
-              id="email-error"
-              class="error"
-              value="invalid-email"
-            />
-            <small class="error">Please enter a valid email address</small>
-          </div>
-
-          <div class="stack" style="--gap: 0.5rem">
-            <label for="username-success">Username (success state)</label>
-            <input
-              type="text"
-              id="username-success"
-              class="success"
-              value="cool_username"
-            />
-            <small class="success">Username is available!</small>
-          </div>
-
-          <div class="stack" style="--gap: 0.5rem">
-            <label for="password-warning">Password (warning state)</label>
-            <input
-              type="password"
-              id="password-warning"
-              class="warning"
-              value="password123"
-            />
-            <small class="warning"
-              >Password is weak. Consider using a stronger password.</small
-            >
-          </div>
-
-          <div class="stack" style="--gap: 0.5rem">
-            <label for="name-default">Full Name (default state)</label>
-            <input
-              type="text"
-              id="name-default"
-              placeholder="Enter your name"
-            />
-          </div>
-        </form>
       </div>
 
       <div class="stack">
@@ -602,68 +684,116 @@
           </table>
         </div>
       </div>
-    </section>
 
-    <!-- Components Section -->
-    <h2 class="heading">Components</h2>
-    <section class="demo-section stack">
-      <h3>.header</h3>
-      <p>A classic header</p>
-      <div class="header">
-        <h6>Your Logo</h6>
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/">About</a>
-            </li>
-            <li>
-              <a href="/">Contact</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <h3>.header.border</h3>
-      <p>...with subtle border on bottom</p>
-      <div class="header border">
-        <h6>Your Logo</h6>
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/">About</a>
-            </li>
-            <li>
-              <a href="/">Contact</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <h3>.header.sticky</h3>
-      <p>...with subtle border on bottom</p>
-      <div style="height: 200px">
-        <div class="header border sticky">
-          <h6>Your Logo</h6>
-          <nav>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/">About</a>
-              </li>
-              <li>
-                <a href="/">Contact</a>
-              </li>
-            </ul>
-          </nav>
+      <div class="stack">
+        <h3>.callout</h3>
+        <p>An informational callout</p>
+        <div class="stack">
+          <div class="callout">
+            <p>.callout This is informational.</p>
+          </div>
+          <div class="callout warning">
+            <p>.callout.warning This is an warning.</p>
+          </div>
+          <div class="callout error">
+            <p>.callout.error This is an error.</p>
+          </div>
+          <div class="callout success">
+            <p>.callout.success This is what success looks like</p>
+          </div>
+
+          <div class="callout ghost">
+            <p>.callout.ghost This is an generic note.</p>
+          </div>
+          <div class="callout">
+            <h5>You can put anyhting you want..</h5>
+            <p>...in this, it's just html, it automatically makes it a "stack"</p>
+          </div>
+          <div class="callout success">
+            <div class="flex">
+              <p class="h5">✅</p>
+              <div class="stack">
+                <h5>a .flex and a div</h5>
+                <p>Common UI patterns, just check the soruce</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="callout"
+            style="--callout-color: var(--pink-1); --callout-border-color: var(--pink-5);"
+          >
+            <p>
+              Custom colors with --callout-color: var(--pink-1);
+              --callout-border-color: var(--pink-5);
+            </p>
+          </div>
+          <div class="callout hard">
+            <p>Add .hard to any of these for a harder left border</p>
+          </div>
         </div>
       </div>
+    </section>
 
+    <!-- Forms Section -->
+    <h2 class="heading">Forms</h2>
+    <p>Form inputs and validation states.</p>
+    <section class="demo-section stack">
+      <div class="stack">
+        <h3>Form Validation States</h3>
+        <p>Built-in styles for error, success, and warning states</p>
+
+        <form class="stack" style="max-width: 500px">
+          <div class="stack" style="--gap: 0.5rem">
+            <label for="email-error">Email (error state)</label>
+            <input
+              type="email"
+              id="email-error"
+              class="error"
+              value="invalid-email"
+            />
+            <small class="error">Please enter a valid email address</small>
+          </div>
+
+          <div class="stack" style="--gap: 0.5rem">
+            <label for="username-success">Username (success state)</label>
+            <input
+              type="text"
+              id="username-success"
+              class="success"
+              value="cool_username"
+            />
+            <small class="success">Username is available!</small>
+          </div>
+
+          <div class="stack" style="--gap: 0.5rem">
+            <label for="password-warning">Password (warning state)</label>
+            <input
+              type="password"
+              id="password-warning"
+              class="warning"
+              value="password123"
+            />
+            <small class="warning"
+              >Password is weak. Consider using a stronger password.</small
+            >
+          </div>
+
+          <div class="stack" style="--gap: 0.5rem">
+            <label for="name-default">Full Name (default state)</label>
+            <input
+              type="text"
+              id="name-default"
+              placeholder="Enter your name"
+            />
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- UI-Components Section -->
+    <h2 class="heading">UI-Components</h2>
+    <p>Composed components built from multiple elements.</p>
+    <section class="demo-section stack">
       <h3>.swipe</h3>
       <p>Interactive swipe component</p>
       <div class="swipe" {@attach swipe_event(70, () => {})}>
@@ -719,56 +849,46 @@
           <button style="height: 100%">Down</button>
         </div>
       </div>
+    </section>
 
-      <h3>.callout</h3>
-      <p>An informational callout</p>
+    <!-- Blocks Section -->
+    <h2 class="heading">Blocks</h2>
+    <p>Complete UI patterns combining multiple elements and components.</p>
+    <section class="demo-section stack">
       <div class="stack">
-        <div class="callout">
-          <p>.callout This is informational.</p>
-        </div>
-        <div class="callout warning">
-          <p>.callout.warning This is an warning.</p>
-        </div>
-        <div class="callout error">
-          <p>.callout.error This is an error.</p>
-        </div>
-        <div class="callout success">
-          <p>.callout.success This is what success looks like</p>
-        </div>
+        <h3>.header</h3>
+        <p>Full-width header with navigation. Supports .border and .sticky modifiers.</p>
+        <div class="stack">
+          <header class="header border">
+            <h4 style="margin: 0;">Logo</h4>
+            <nav>
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </header>
+          <p class="fs-xs">With .border modifier</p>
 
-        <div class="callout ghost">
-          <p>.callout.ghost This is an generic note.</p>
-        </div>
-        <div class="callout">
-          <h5>You can put anyhting you want..</h5>
-          <p>...in this, it's just html, it automatically makes it a "stack"</p>
-        </div>
-        <div class="callout success">
-          <div class="flex">
-            <p class="h5">✅</p>
-            <div class="stack">
-              <h5>a .flex and a div</h5>
-              <p>Common UI patterns, just check the soruce</p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="callout"
-          style="--callout-color: var(--pink-1); --callout-border-color: var(--pink-5);"
-        >
-          <p>
-            Custom colors with --callout-color: var(--pink-1);
-            --callout-border-color: var(--pink-5);
-          </p>
-        </div>
-        <div class="callout hard">
-          <p>Add .hard to any of these for a harder left border</p>
+          <header class="header" style="background: var(--fg-05);">
+            <h4 style="margin: 0;">Brand</h4>
+            <nav>
+              <ul style="--gap: 2rem;">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+              </ul>
+            </nav>
+            <button>Sign Up</button>
+          </header>
+          <p class="fs-xs">With custom background and button</p>
         </div>
       </div>
     </section>
 
     <!-- Utilities Section -->
     <h2 class="heading">Utilities</h2>
+    <p>Modifier and helper classes for common adjustments.</p>
     <section class="demo-section stack">
       <div class="stack">
         <h3>.no-list</h3>
@@ -847,6 +967,57 @@
       </div>
 
       <div class="stack">
+        <h3>.h1 - .h6</h3>
+        <p>Apply heading sizes to any element without semantic heading tags</p>
+        <div class="stack" style="--gap: 0.5rem">
+          <p class="h1">.h1 - Largest heading size</p>
+          <p class="h2">.h2 - Second level</p>
+          <p class="h3">.h3 - Third level</p>
+          <p class="h4">.h4 - Fourth level</p>
+          <p class="h5">.h5 - Fifth level</p>
+          <p class="h6">.h6 - Sixth level</p>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>.fs-* (Font Size)</h3>
+        <p>Fluid font size utilities using the --fl (fluid level) system</p>
+        <div class="stack" style="--gap: 0.5rem">
+          <p class="fs-xs">.fs-xs - Extra small (--fl: -1)</p>
+          <p class="fs-base">.fs-base - Base size (--fl: 0)</p>
+          <p class="fs-s">.fs-s - Small heading (--fl: 1)</p>
+          <p class="fs-m">.fs-m - Medium (--fl: 2)</p>
+          <p class="fs-l">.fs-l - Large (--fl: 3)</p>
+          <p class="fs-xl">.fs-xl - Extra large (--fl: 4)</p>
+          <p class="fs-xxl">.fs-xxl - Double extra large (--fl: 5)</p>
+          <p class="fs-xxxl">.fs-xxxl - Triple extra large (--fl: 6)</p>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>.auto-color</h3>
+        <p>Automatically sets text color (light or dark) based on background luminosity</p>
+        <div class="flex" style="flex-wrap: wrap; gap: 1rem">
+          <div class="auto-color" style="--bg-color: var(--blue-5); padding: var(--pad-m); border-radius: var(--br-m);">
+            Blue background
+          </div>
+          <div class="auto-color" style="--bg-color: var(--yellow-3); padding: var(--pad-m); border-radius: var(--br-m);">
+            Yellow background
+          </div>
+          <div class="auto-color" style="--bg-color: var(--red-7); padding: var(--pad-m); border-radius: var(--br-m);">
+            Dark red background
+          </div>
+          <div class="auto-color" style="--bg-color: var(--green-4); padding: var(--pad-m); border-radius: var(--br-m);">
+            Green background
+          </div>
+          <div class="auto-color" style="--bg-color: var(--purple-6); padding: var(--pad-m); border-radius: var(--br-m);">
+            Purple background
+          </div>
+        </div>
+        <p class="fs-xs">Set <code>--bg-color</code> and the text color adjusts automatically</p>
+      </div>
+
+      <div class="stack">
         <h3>Aspect Ratio Utilities</h3>
         <p>
           Maintain specific aspect ratios for containers (useful for images,
@@ -883,180 +1054,6 @@
           <code>aspect-ratio: var(--aspect-ratio);</code>
         </p>
       </div>
-    </section>
-
-    <!-- CSS Variables Reference -->
-    <section class="demo-section stack">
-      <h2 class="heading">CSS Variables Reference</h2>
-      <p>
-        A big part of Graffiti is the flexible CSS variable system that can be
-        used in your CSS to create consistent and adaptable designs.
-      </p>
-
-      <div class="stack">
-        <h3>Vertical Spacing</h3>
-        <div class="layout-card" style="--min-card-width: 150px">
-          <div class="box" style="padding: var(--vs-s) var(--vs-s)">
-            --vs-s: 0.5rem
-          </div>
-          <div class="box" style="padding: var(--vs-base) var(--vs-s)">
-            --vs-base: 1rem
-          </div>
-          <div class="box" style="padding: var(--vs-m) var(--vs-s)">
-            --vs-m: 1.5rem
-          </div>
-          <div class="box" style="padding: var(--vs-l) var(--vs-s)">
-            --vs-l: 2rem
-          </div>
-          <div class="box" style="padding: var(--vs-xl) var(--vs-s)">
-            --vs-xl: 2rem
-          </div>
-        </div>
-      </div>
-
-      <div class="stack">
-        <h3>Border Radius</h3>
-        <div class="layout-card" style="--min-card-width: 150px">
-          <div class="box" style="border-radius: var(--br-xs)">
-            --br-xs: 2px
-          </div>
-          <div class="box" style="border-radius: var(--br-s)">--br-s: 4px</div>
-          <div class="box" style="border-radius: var(--br-m)">--br-m: 8px</div>
-          <div class="box" style="border-radius: var(--br-l)">--br-l: 16px</div>
-        </div>
-      </div>
-
-      <div class="stack">
-        <h3>Border</h3>
-        <div class="stack">
-          <div style="border: var(--border-05)">--border-05</div>
-          <div style="border: var(--border-1)">--border-1</div>
-          <div style="border: var(--border-2)">--border-2</div>
-        </div>
-      </div>
-
-      <div class="stack">
-        <h3>Padding</h3>
-        <div class="layout-card" style="--min-card-width: 150px">
-          <div class="box" style="padding: var(--pad-xs)">--pad-xs: 2px</div>
-          <div class="box" style="padding: var(--pad-s)">--pad-s: 6px</div>
-          <div class="box" style="padding: var(--pad-m)">--pad-m: 12px</div>
-          <div class="box" style="padding: var(--pad-l)">--pad-l: 25px</div>
-        </div>
-      </div>
-
-      <div class="stack">
-        <h3>Line Heights</h3>
-        <p>Consistent line height tokens for better typography control</p>
-        <div class="stack">
-          <div class="box" style="line-height: var(--lh-tight)">
-            <strong>--lh-tight: 1.2</strong><br />
-            This is tight line height, useful for headings and display text where
-            you want compact vertical spacing. The quick brown fox jumps over the
-            lazy dog.
-          </div>
-          <div class="box" style="line-height: var(--lh-normal)">
-            <strong>--lh-normal: 1.5</strong><br />
-            This is normal line height, the default for body text. It provides comfortable
-            reading with balanced spacing. The quick brown fox jumps over the lazy
-            dog. The five boxing wizards jump quickly.
-          </div>
-          <div class="box" style="line-height: var(--lh-loose)">
-            <strong>--lh-loose: 1.8</strong><br />
-            This is loose line height, creating extra vertical breathing room. Useful
-            for larger body text or when you want more space between lines. The quick
-            brown fox jumps over the lazy dog.
-          </div>
-        </div>
-      </div>
-
-      <div class="stack">
-        <h3>Shadows</h3>
-        <p>
-          Modern layered shadows - subtle in light mode, deeper and more intense
-          in dark mode
-        </p>
-        <div class="layout-card" style="--min-card-width: 200px">
-          <div class="box" style="box-shadow: var(--shadow-1)">
-            --shadow-1<br />Subtle
-          </div>
-          <div class="box" style="box-shadow: var(--shadow-2)">
-            --shadow-2<br />Light lift
-          </div>
-          <div class="box" style="box-shadow: var(--shadow-3)">
-            --shadow-3<br />Moderate
-          </div>
-          <div class="box" style="box-shadow: var(--shadow-4)">
-            --shadow-4<br />Strong
-          </div>
-          <div class="box" style="box-shadow: var(--shadow-5)">
-            --shadow-5<br />Dramatic
-          </div>
-          <div class="box" style="box-shadow: var(--shadow-6)">
-            --shadow-6<br />Maximum
-          </div>
-        </div>
-      </div>
-
-      <div class="stack">
-        <h3>Colors</h3>
-        <p>
-          OKLCH color system with automatic 1-9 scales generated from base
-          colors (scale 5) using relative color syntax
-        </p>
-
-        {#each colors as color}
-          <div class="stack">
-            <h4>{color.charAt(0).toUpperCase() + color.slice(1)} Scale</h4>
-            {#if color !== "gray"}
-              <div class="auto-color" style="--bg-color: var(--{color})">--{color}</div>
-            {/if}
-            <div class="cluster">
-              {#each scale as n}
-                <div class="auto-color" style="--bg-color: var(--{color}-{n})">--{color}-{n}</div>
-              {/each}
-            </div>
-          </div>
-        {/each}
-
-        {#each static_colors as { name, note }}
-          <div class="stack">
-            <h4>{name.charAt(0).toUpperCase() + name.slice(1)} Scale (Static)</h4>
-            <p class="fs-xs">{note}</p>
-            <div class="auto-color" style="--bg-color: var(--{name})">--{name}</div>
-            <div class="cluster">
-              {#each scale as n}
-                <div class="auto-color" style="--bg-color: var(--{name}-{n})">--{name}-{n}</div>
-              {/each}
-            </div>
-          </div>
-        {/each}
-      </div>
-
-      <div class="stack">
-        <h2 class="heading">Theming Variables</h2>
-        <div class="layout-split">
-          <div class="box" style="background: var(--fg); color: var(--bg)">
-            --fg<br />Foreground color
-          </div>
-          <div class="box" style="background: var(--bg); color: var(--fg)">
-            --bg<br />Background color
-          </div>
-        </div>
-      </div>
-
-      {#each theming_scales as { name, label, note }}
-        <div class="stack">
-          <h4>{label} Scale</h4>
-          <p class="fs-xs">{note}</p>
-          <div class="auto-color" style="--bg-color: var(--{name})">--{name}</div>
-          <div class="cluster">
-            {#each scale_with_05 as n}
-              <div class="auto-color" style="--bg-color: var(--{name}-{n})">--{name}-{n}</div>
-            {/each}
-          </div>
-        </div>
-      {/each}
     </section>
   </main>
 
