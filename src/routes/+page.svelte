@@ -15,6 +15,8 @@
   import reelCode from "../docs/demos/Reel.svelte?raw";
   import Toggle from "../docs/demos/Toggle.svelte";
   import toggleCode from "../docs/demos/Toggle.svelte?raw";
+  import Breadcrumbs from "../docs/demos/Breadcrumbs.svelte";
+  import breadcrumbsCode from "../docs/demos/Breadcrumbs.svelte?raw";
   import type { ThemeValues, FontSettings } from "$lib/types";
 
   let theme_values: ThemeValues = $state({
@@ -763,6 +765,14 @@
       <p>Native HTML accordion using details/summary with smooth animations via @starting-style and allow-discrete.</p>
       <CodeExample code={detailsCode} title="Accordion Variants">
         <Details />
+      </CodeExample>
+    </section>
+
+    <section class="demo-section stack">
+      <h3>Breadcrumbs</h3>
+      <p>Simple breadcrumb navigation with slash separators. Uses semantic HTML with proper ARIA attributes for accessibility.</p>
+      <CodeExample code={breadcrumbsCode} title="Breadcrumbs">
+        <Breadcrumbs />
       </CodeExample>
     </section>
 
