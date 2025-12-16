@@ -1,5 +1,12 @@
 # @drop-in/graffiti
 
+## 4.4.1
+
+### Patch Changes
+
+- 790d028: Added breadcrumbs component - simple breadcrumb navigation with slash separators. Uses semantic HTML with `.breadcrumbs` class on nav element, supports light/dark themes, and includes proper ARIA attributes for accessibility. Current page indicator uses `[aria-current="page"]` selector.
+- d6dded6: Added toggle switch component - accessible toggle/switch input using native checkbox semantics with `.toggle` class. Supports checked, disabled, hover, and focus states. Includes `.compact` variant for smaller toggles.
+
 ## 4.4.0
 
 ### Minor Changes
