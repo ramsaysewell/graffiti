@@ -258,3 +258,4 @@ User: Implement graffiti-xyz (add toggle switch component)
 6. **Always update llms.txt** for new components/features before closing
 7. **Use the right subagent** - don't write CSS yourself, delegate to css agent
 8. **Keep docs clean** - no unnecessary wrappers or containers in demos
+9. **WAIT FOR EXPLICIT USER APPROVAL** before finishing up - after visual testing passes, stop and ask the user for explicit approval (e.g., "finish this up", "looks good, proceed", etc.) before creating changesets, updating llms.txt, bumping versions, or closing issues
