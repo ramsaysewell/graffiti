@@ -1,5 +1,15 @@
 # @drop-in/graffiti
 
+## 4.6.0
+
+### Minor Changes
+
+- f330776: Added avatar component for circular user images or initials. Features include:
+  - Multiple size variants (xs, s, default, l, xl) via modifier classes
+  - Automatic initials/icon fallback when no image provided
+  - Optional bordered variant
+  - Fluid typography scaling for initials
+
 ## 4.5.0
 
 ### Minor Changes
