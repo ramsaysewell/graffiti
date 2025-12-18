@@ -410,6 +410,49 @@ Vertical scrolling with CSS scroll-snap (no JavaScript required)
 - `.box-glow`: Box with subtle inset glow shadow
 - `.box-semi-gloss`: Gradient background with stronger shadow (premium feel)
 
+### Avatar
+Circular avatar for user images or initials:
+- `.avatar`: Base avatar (default size: 2.5rem)
+
+**Size Variants:**
+- `.avatar.xs`: Extra small (1.5rem)
+- `.avatar.s`: Small (2rem)
+- `.avatar`: Medium/default (2.5rem)
+- `.avatar.l`: Large (3.5rem)
+- `.avatar.xl`: Extra large (5rem)
+
+**Modifiers:**
+- `.avatar.bordered`: Adds subtle border
+
+**DEFAULT PROPERTIES (already included, do not add):**
+- Circular shape (border-radius: 50%)
+- Images automatically use object-fit: cover
+- Subtle background color for initials fallback (--fg-1)
+- Fluid typography for initials that scales with size
+
+Usage:
+```html
+<!-- With image -->
+<span class="avatar">
+  <img src="user.jpg" alt="User name">
+</span>
+
+<!-- With initials (fallback) -->
+<span class="avatar">JD</span>
+
+<!-- Size variants -->
+<span class="avatar xs"><img src="user.jpg" alt=""></span>
+<span class="avatar s"><img src="user.jpg" alt=""></span>
+<span class="avatar"><img src="user.jpg" alt=""></span>
+<span class="avatar l"><img src="user.jpg" alt=""></span>
+<span class="avatar xl"><img src="user.jpg" alt=""></span>
+
+<!-- With border -->
+<span class="avatar bordered">
+  <img src="user.jpg" alt="User name">
+</span>
+```
+
 ### Callout
 Informational callout boxes with multiple variants for different message types:
 - `.callout`: Base callout with blue styling (default info state)
