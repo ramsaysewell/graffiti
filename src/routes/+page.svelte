@@ -19,6 +19,8 @@
   import breadcrumbsCode from "../docs/demos/Breadcrumbs.svelte?raw";
   import Dropdown from "../docs/demos/Dropdown.svelte";
   import dropdownCode from "../docs/demos/Dropdown.svelte?raw";
+  import Avatar from "../docs/demos/Avatar.svelte";
+  import avatarCode from "../docs/demos/Avatar.svelte?raw";
   import type { ThemeValues, FontSettings } from "$lib/types";
 
   let theme_values: ThemeValues = $state({
@@ -598,6 +600,14 @@
             var(--shadow-5);
           </div>
         </div>
+      </div>
+
+      <div class="stack">
+        <h3>.avatar</h3>
+        <p>Circular avatar for user images or initials. Supports multiple sizes and optional border.</p>
+        <CodeExample code={avatarCode} title="Avatar Variants">
+          <Avatar />
+        </CodeExample>
       </div>
 
       <div class="stack">
