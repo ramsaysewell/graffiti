@@ -172,7 +172,7 @@ Contrasting tints that automatically adapt to light/dark mode. Useful for layere
 
 ### Layout Customization
 - `--gap`: Default gap for layout utilities (default: varies per layout)
-- `--layout-gap`: Override gap for specific layout
+- `--layout-gap`: Override gap for specific layout (non-inheriting - does not cascade to nested layouts)
 - `--min-card-width`: Minimum card width for `.layout-card` (default: 290px)
 - `--layout-min-card-width`: Override for specific card layout
 - `--max-width`: Max width for `.layout-readable` (default: 1200px)
@@ -236,6 +236,24 @@ Sidebar + main content (default: 250px sidebar)
 .layout-sidebar.narrow   /* 150px sidebar */
 .layout-sidebar.wide     /* 350px sidebar */
 .layout-sidebar.invert   /* Sidebar on right */
+.layout-sidebar.fill     /* Full-height sidebar for app shells */
+```
+
+### `.layout-sidebar.fill`
+Full-height sidebar variant for app shell layouts. Sidebar stretches to fill the container height with independent scrolling.
+```css
+/* DEFAULT PROPERTIES (already included, do not add): */
+/* - align-items: stretch (overrides default start) */
+/* - First child gets overflow-y: auto for independent scrolling */
+
+/* Usage - App shell with sidebar navigation */
+<div class="layout-sidebar fill" style="--layout-gap: 0">
+  <aside class="split vertical">
+    <nav>Top navigation</nav>
+    <div>Bottom footer/promo</div>
+  </aside>
+  <main>Main content</main>
+</div>
 ```
 
 ### `.layout-split`
@@ -389,6 +407,9 @@ Vertical scrolling with CSS scroll-snap (no JavaScript required)
   - **DEFAULT**: `display: grid`, `gap: 1rem` (do not add these)
 - `.split`: Flex layout with space-between and top alignment
   - **DEFAULT**: `display: flex`, `gap: 20px`, `align-items: start`, `justify-content: space-between` (do not add these)
+- `.split.vertical`: Vertical split - first child at top, last child at bottom
+  - **DEFAULT**: `flex-direction: column`, `height: 100%` (do not add these)
+  - Useful for sidebar layouts with nav at top and footer/promo at bottom
 - `.readable`: Max-width 900px container
   - **DEFAULT**: `max-width: 900px`, `width: 100%` (do not add these)
 
