@@ -1477,6 +1477,7 @@ details.minimal[open] > summary::after {
 
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   /* Top-level links and summary elements */
   > a,
