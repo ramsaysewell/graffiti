@@ -1,8 +1,8 @@
 <div class="cluster">
   <!-- Basic dropdown with header, items, and dividers -->
-  <div class="dropdown">
-    <button popovertarget="dropdown-basic">Options</button>
-    <div id="dropdown-basic" popover class="dropdown-menu">
+  <div class="dropdown" style="--anchor: --dropdown-options">
+    <button popovertarget="dropdown-options">Options</button>
+    <div id="dropdown-options" popover class="dropdown-menu">
       <div class="dropdown-header">Account</div>
       <hr>
       <a href="#profile">Profile</a>
@@ -13,9 +13,9 @@
   </div>
 
   <!-- End-aligned dropdown -->
-  <div class="dropdown end">
-    <button popovertarget="dropdown-end">Actions</button>
-    <div id="dropdown-end" popover class="dropdown-menu">
+  <div class="dropdown end" style="--anchor: --dropdown-actions">
+    <button popovertarget="dropdown-actions">Actions</button>
+    <div id="dropdown-actions" popover class="dropdown-menu">
       <div class="dropdown-header">Quick Actions</div>
       <hr>
       <a href="#edit">Edit</a>

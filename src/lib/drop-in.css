@@ -139,6 +139,18 @@
   --purple-8: oklch(from var(--purple) l c h / 0.9);
   --purple-9: var(--purple);
 
+  /* Purple scale */
+  --purple-deep: #1b1525;
+  --purple-deep-1: oklch(from var(--purple-deep) l c h / 0.1);
+  --purple-deep-2: oklch(from var(--purple-deep) l c h / 0.2);
+  --purple-deep-3: oklch(from var(--purple-deep) l c h / 0.3);
+  --purple-deep-4: oklch(from var(--purple-deep) l c h / 0.4);
+  --purple-deep-5: oklch(from var(--purple-deep) l c h / 0.5);
+  --purple-deep-6: oklch(from var(--purple-deep) l c h / 0.6);
+  --purple-deep-7: oklch(from var(--purple-deep) l c h / 0.75);
+  --purple-deep-8: oklch(from var(--purple-deep) l c h / 0.9);
+  --purple-deep-9: var(--purple-deep);
+
   /* Indigo scale */
   --indigo-1: oklch(from var(--indigo) l c h / 0.1);
   --indigo-2: oklch(from var(--indigo) l c h / 0.2);
@@ -1457,17 +1469,126 @@ details.minimal[open] > summary::after {
   }
 }
 
+/* Sidebar Navigation */
+
+.sidebar-nav {
+  --sidebar-nav-icon-size: 20px;
+  --sidebar-nav-indent: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+
+  /* Top-level links and summary elements */
+  > a,
+  > details > summary {
+    display: flex;
+    align-items: center;
+    gap: var(--pad-s);
+    padding: var(--pad-s) var(--pad-m);
+    color: var(--fg-6);
+    text-decoration: none;
+    border-radius: var(--br-s);
+    cursor: pointer;
+    transition: background-color 0.1s var(--ease-smooth);
+    margin: 0;
+
+    /* Icon sizing */
+    > svg {
+      width: var(--sidebar-nav-icon-size);
+      height: var(--sidebar-nav-icon-size);
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      background: var(--fg-05);
+      color: var(--fg);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--fg);
+      outline-offset: -2px;
+    }
+  }
+
+  /* Active state for links */
+  > a.active,
+  > details > summary.active {
+    background: var(--fg-05);
+    color: var(--fg);
+  }
+
+  /* Details/summary overrides for sidebar context */
+  > details {
+    margin: 0;
+
+    > summary {
+      list-style: none;
+      user-select: none;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      /* Override default details arrow - use subtle chevron after text */
+      &::before {
+        display: none;
+      }
+
+      &::after {
+        content: "›";
+        margin-inline-start: auto;
+        rotate: 0deg;
+        transition: rotate 0.15s var(--ease-smooth);
+        color: var(--fg-4);
+      }
+    }
+
+    &[open] > summary::after {
+      rotate: 90deg;
+    }
+
+    /* Nested content - no animation override, uses global details animation */
+    > a {
+      display: flex;
+      align-items: center;
+      gap: var(--pad-s);
+      padding: var(--pad-s) var(--pad-m);
+      padding-inline-start: calc(var(--pad-m) + var(--sidebar-nav-indent));
+      color: var(--fg-5);
+      text-decoration: none;
+      border-radius: var(--br-s);
+      margin: 0;
+      transition: background-color 0.1s var(--ease-smooth);
+
+      &:hover {
+        background: var(--fg-05);
+        color: var(--fg);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--fg);
+        outline-offset: -2px;
+      }
+
+      &.active {
+        background: var(--fg-05);
+        color: var(--fg);
+      }
+    }
+  }
+}
+
 /* Dropdown Menu */
 
 .dropdown {
   position: relative;
   display: inline-block;
-  anchor-name: --dropdown;
+  anchor-name: var(--anchor);
 }
 
 .dropdown-menu[popover] {
   position: absolute;
-  position-anchor: --dropdown;
+  position-anchor: var(--anchor);
   inset: unset;
   position-area: block-end span-inline-end;
   margin: 0;
@@ -1554,12 +1675,7 @@ details.minimal[open] > summary::after {
 }
 
 /* End-aligned variant */
-.dropdown.end {
-  anchor-name: --dropdown-end;
-}
-
 .dropdown.end .dropdown-menu[popover] {
-  position-anchor: --dropdown-end;
   position-area: block-end span-inline-start;
   transform-origin: top right;
 }
