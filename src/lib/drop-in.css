@@ -14,20 +14,21 @@
   --min-vw: 360;
   --max-vw: 800;
 
-  --line-height: calc(2px + 2ex + 2px);
-
   /* Vertical Spacing */
   --vs-s: 0.5rem;
   --vs-base: 1rem;
   --vs-m: 1.5rem;
   --vs-l: 2rem;
   --vs-xl: 4rem;
+  --vs-xxl: 6rem;
 
   /* Border Radius */
   --br-xs: 2px;
   --br-s: 4px;
   --br-m: 8px;
   --br-l: 16px;
+  --br-xl: 24px;
+  --br-xxl: 32px;
 
   /* Padding */
   --pad-xs: 0.25rem;
@@ -37,6 +38,14 @@
   --pad-xl: 1.5rem;
   --pad-xxl: 2rem;
   --pad-xxxl: 4rem;
+
+  /* Line Height */
+  --lh-xs: 1;
+  --lh-s: 1.2;
+  --lh: 1.5;
+  --lh-m: var(--lh);
+  --lh-l: 1.8;
+  --lh-xl: 2;
 
   /* Shadows - Layered, adaptive shadows with light/dark mode support */
   --shadow-1: 0 1px 2px rgb(0 0 0 / 0.04);
@@ -276,7 +285,7 @@
   --black-8: oklch(from var(--black) l c h / 0.9);
   --black-9: var(--black);
 
-  --fg-light: #000;
+  --fg-light: #050505;
   --fg-dark: #fff;
   --fg: light-dark(var(--fg-light), var(--fg-dark));
   --fg-05: oklch(from var(--fg) l c h / 0.05);
@@ -291,7 +300,7 @@
   --fg-9: var(--fg);
 
   --bg-light: #fff;
-  --bg-dark: #111;
+  --bg-dark: #050505;
   --bg: light-dark(var(--bg-light), var(--bg-dark));
 
   --bg-05: oklch(from var(--bg) l c h / 0.05);
@@ -306,17 +315,12 @@
   --bg-9: var(--bg);
 
   /* Fluid Type */
-  --font-size-min: 14;
+  --font-size-min: 16;
   --font-size-max: 18;
   --font-ratio-min: 1.2;
   --font-ratio-max: 1.33;
   --font-width-min: 320;
   --font-width-max: 1500;
-
-  /* Line Height Tokens */
-  --lh-tight: 1.2;
-  --lh-normal: 1.5;
-  --lh-loose: 1.8;
 
   /* Border Tokens */
   --border-05: solid 1px var(--fg-05);
@@ -417,14 +421,14 @@ footer {
 
 body {
   font-family: var(--font-sans);
-  line-height: var(--lh-normal);
+  line-height: var(--lh);
   margin: 0;
   min-height: 100vh;
   color: var(--fg);
   background: var(--bg);
+  height: stretch;
 }
 
-body,
 h1,
 h2,
 h3,
@@ -476,6 +480,7 @@ td {
   );
   font-size: var(--fluid-type);
   margin-block: 0 var(--vs-base);
+  line-height: var(--lh);
 }
 
 /* This makes containers, with container queries use a cqi unit instead of vi */
@@ -519,6 +524,7 @@ textarea,
 button,
 select {
   --fl: 0;
+  line-height: var(--lh);
 }
 .fs-xs {
   --fl: -1;
@@ -529,7 +535,8 @@ select {
 .fs-s {
   --fl: 1;
 }
-.fs-m {
+.fs-m,
+.pull-quote {
   --fl: 2;
 }
 .fs-l {
@@ -567,7 +574,7 @@ button,
   justify-content: center;
   gap: var(--gap, 1rem);
   align-items: center;
-  line-height: var(--lh-normal);
+  line-height: var(--lh);
   border: var(--border-05);
   border-radius: var(--br-s);
   padding: var(--pad-s) var(--pad-xl);
@@ -794,6 +801,17 @@ label {
 
 .layout-sidebar.invert {
   grid-template-columns: 1fr 250px;
+
+  /* Place first child (sidebar) in second column, second child (main) in first column */
+  > :first-child {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  > :nth-child(2) {
+    grid-column: 1;
+    grid-row: 1;
+  }
 }
 
 .layout-sidebar.invert.narrow {
@@ -807,16 +825,19 @@ label {
 .layout-sidebar.fill {
   align-items: stretch;
 
+  /* Sidebar is always :first-child in DOM, even for .invert (CSS grid handles visual placement) */
   > :first-child {
     overflow-y: auto;
   }
 }
 
-.layout-sidebar.fill.invert > :first-child {
-  overflow-y: visible;
-}
-
-.layout-sidebar.fill.invert > :last-child {
+/* Fixed sidebar - stays pinned while main content scrolls */
+/* Sidebar is always :first-child in DOM, even for .invert (CSS grid handles visual placement) */
+.layout-sidebar.fixed > :first-child {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100dvh;
   overflow-y: auto;
 }
 
@@ -830,10 +851,19 @@ label {
     grid-template-columns: 1fr;
   }
 
+  /* Reset grid placement for invert on mobile so items stack in DOM order */
+  .layout-sidebar.invert > :first-child,
+  .layout-sidebar.invert > :nth-child(2) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  /* Reset fill/fixed sidebar styles on mobile - sidebar is always :first-child */
   .layout-sidebar.fill > :first-child,
-  .layout-sidebar.fill.invert > :last-child {
+  .layout-sidebar.fixed > :first-child {
     position: static;
     height: auto;
+    max-height: none;
     overflow-y: visible;
   }
 }
@@ -993,10 +1023,6 @@ label {
       }
     }
   }
-  &.full-bleed {
-    width: 100vi;
-    margin-inline: calc(50% - 50vi);
-  }
 }
 
 /* Thank you Adam Argyle @argyleink for this hack.*/
@@ -1042,24 +1068,21 @@ label {
   border: var(--border-1);
 }
 
-.box-ghost {
+.box.ghost {
   background: transparent;
-  padding: var(--pad-m);
-  border-radius: var(--br-s);
-  border: var(--border-1);
 }
 
-.box-glow {
-  background: var(--fg-05);
-  padding: var(--pad-m);
-  border-radius: var(--br-s);
+.box.invisible {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.box.glow {
   box-shadow: var(--box);
 }
 
-.box-semi-gloss {
-  background: var(--fg-05);
-  padding: var(--pad-m);
-  border-radius: var(--br-s);
+.box.semi-gloss {
   box-shadow: var(--box), var(--shadow-5);
   background: linear-gradient(180deg, var(--fg-05) 0%, var(--fg-1) 100%);
 }
@@ -1067,12 +1090,10 @@ label {
 /* UI Elements */
 
 .header {
-  width: 100vi;
-  margin-inline: calc(50% - 50vi);
   display: flex;
   gap: 20px;
   align-items: center;
-  padding: var(--pad-l) var(--pad-l);
+  padding: var(--pad-l);
   justify-content: space-between;
   > * {
     margin: 0;
@@ -1108,18 +1129,18 @@ label {
   --callout-color: var(--blue-1);
   --callout-border-color: var(--blue-5);
   padding: var(--pad-l);
-  border-radius: var(--br-m);
-  border: var(--callout-border-color) solid 1px;
-  background: var(--callout-color);
+  border-radius: var(--br-xl);
+  corner-shape: squircle;
+  border: var(--callout-border-color) solid 2px;
   color: var(--fg-8);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   gap: var(--layout-gap, var(--gap, 1rem));
 
   > * {
     margin: 0;
+  }
+
+  &.fill {
+    background: var(--callout-color);
   }
 
   &.warning {
@@ -1143,7 +1164,7 @@ label {
   }
 
   &.hard {
-    border-inline-start: 6px solid var(--callout-border-color);
+    border-inline-start: 10px solid var(--callout-border-color);
   }
 }
 
@@ -1512,7 +1533,7 @@ details.minimal[open] > summary::after {
   }
 
   /* Active state for links */
-  > a.active,
+  > [aria-current="page"],
   > details > summary.active {
     background: var(--fg-05);
     color: var(--fg);
@@ -1825,4 +1846,8 @@ input[type="checkbox"].toggle {
     --toggle-width: 2em;
     --toggle-height: 1.125em;
   }
+}
+
+::selection {
+  background: var(--primary);
 }
