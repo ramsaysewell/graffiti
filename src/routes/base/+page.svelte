@@ -47,7 +47,7 @@
 </script>
 
 <!-- Base: Typography defaults + CSS Variables -->
-<section class="stack">
+<section class="stack readable">
   <h1>Base</h1>
   <p class="pull-quote">Foundation styles and variables.</p>
   <p>

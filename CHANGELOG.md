@@ -1,5 +1,18 @@
 # @drop-in/graffiti
 
+## 4.9.0
+
+### Minor Changes
+
+- 4fdcf2f: Refactored .box modifiers to use compound class syntax (.box.ghost instead of .box-ghost) and added .box.invisible variant
+- 4fdcf2f: Standardized line height tokens to follow consistent sizing scale (--lh-xs, --lh-s, --lh, --lh-m, --lh-l, --lh-xl)
+- 4fdcf2f: Added `.layout-sidebar.fixed` modifier for sticky sidebar layouts. The sidebar stays pinned to the viewport while main content scrolls independently - perfect for app shells and dashboards. Works seamlessly with headers/footers without requiring hardcoded heights.
+
+### Patch Changes
+
+- 4fdcf2f: Added --br-xl (24px) and --br-xxl (32px) border radius tokens
+- 4fdcf2f: Added .pull-quote class for styled pull quote text
+
 ## 4.8.1
 
 ### Patch Changes

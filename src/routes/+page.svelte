@@ -20,7 +20,9 @@
         Useful CSS utilities, elements, complete UI blocks and templates.
       </p>
     </div>
-    <a href="https://github.com/stolinski/graffiti"
+    <a
+      href="https://github.com/stolinski/graffiti"
+      style="align-self: flex-start;"
       ><svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"

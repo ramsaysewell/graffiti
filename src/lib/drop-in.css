@@ -28,6 +28,7 @@
   --br-m: 8px;
   --br-l: 16px;
   --br-xl: 24px;
+  --br-xxl: 32px;
 
   /* Padding */
   --pad-xs: 0.25rem;
@@ -425,9 +426,9 @@ body {
   min-height: 100vh;
   color: var(--fg);
   background: var(--bg);
+  height: stretch;
 }
 
-body,
 h1,
 h2,
 h3,

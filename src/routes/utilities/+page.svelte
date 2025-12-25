@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section class="stack">
+<section class="stack readable">
   <h1>CSS Utilities</h1>
   <p class="pull-quote">These utility classes actually have utility.</p>
   <p>
