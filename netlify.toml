@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://drop-in-graffiti.netlify.app/*"
+  to = "https://www.graffiti-ui.com/:splat"
+  status = 301
+  force = true
