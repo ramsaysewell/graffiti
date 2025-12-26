@@ -1,6 +1,6 @@
 <script lang="ts">
+  import { version } from "$app/environment";
   import { page } from "$app/state";
-  import { version } from "$lib/index.js";
   import "$lib/drop-in.css";
   import type { FontSettings, ThemeValues } from "$lib/types";
   import ThemeControls from "../docs/ThemeControls.svelte";
