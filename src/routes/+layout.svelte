@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { version } from "$app/environment";
   import { page } from "$app/state";
+  declare const __APP_VERSION__: string;
+  const version = __APP_VERSION__;
   import "$lib/drop-in.css";
   import type { FontSettings, ThemeValues } from "$lib/types";
   import ThemeControls from "../docs/ThemeControls.svelte";
@@ -43,6 +44,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="manifest" href="/site.webmanifest" />
+  <script
+    defer
+    data-domain="graffiti-ui.com"
+    src="https://analytics.tolin.ski/js/script.js"
+  ></script>
 </svelte:head>
 
 <ThemeControls bind:theme_values bind:font_settings />
