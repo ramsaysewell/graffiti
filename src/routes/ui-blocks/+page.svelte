@@ -12,6 +12,8 @@
   import sidebarNavCode from "$docs/demos/SidebarNav.svelte?raw";
   import UserMenu from "$docs/demos/UserMenu.svelte";
   import userMenuCode from "$docs/demos/UserMenu.svelte?raw";
+  import LoginForm from "$docs/demos/LoginForm.svelte";
+  import loginFormCode from "$docs/demos/LoginForm.svelte?raw";
   import { scroll_on_load, swipe_event } from "$lib/svelte";
 </script>
 
@@ -168,12 +170,23 @@
 </div>
 
 <h2 class="heading" id="forms">Forms</h2>
-<section class="stack">
+<section class="stack readable">
   <p>
     Complete form patterns and compositions. For default input styling see <a
       href="/base#forms">Base → Forms</a
     >. For individual form elements see
     <a href="/elements#forms">Elements → Forms</a>.
   </p>
-  <p>Coming soon: Login form, signup form, and other complete form patterns.</p>
+</section>
+
+<section class="stack">
+  <h3>Login Form</h3>
+  <p>
+    Simple login form using Graffiti's base form styles. No custom CSS needed.
+  </p>
+  <CodeExample code={loginFormCode} title="Login Form">
+    <div style="max-width: 400px;">
+      <LoginForm />
+    </div>
+  </CodeExample>
 </section>
