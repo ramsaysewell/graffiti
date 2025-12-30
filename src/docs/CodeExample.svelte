@@ -9,6 +9,7 @@
 	- Syntax highlighting via svelte-highlight with auto-detection or explicit language
 	- Light/dark theme support using Graffiti's CSS variables
 	- Collapsible code section with toggle button
+	- Copy-to-clipboard button for easy code copying
 
 	@prop {string} code - Raw source code string (import with ?raw suffix)
 	@prop {string} [title] - Title for the example
@@ -40,6 +41,25 @@
   }
 
   let { code, title, language, children }: Props = $props();
+
+  // Copy button state
+  let copied = $state(false);
+
+  /**
+   * Copy code to clipboard and show feedback
+   */
+  async function copyToClipboard() {
+    try {
+      await navigator.clipboard.writeText(code);
+      copied = true;
+      // Reset after 2 seconds
+      setTimeout(() => {
+        copied = false;
+      }, 2000);
+    } catch (err) {
+      console.error("Failed to copy code:", err);
+    }
+  }
 
   /**
    * Auto-detect if code contains Svelte-specific syntax
@@ -152,6 +172,45 @@
   <details class="right">
     <summary>Code</summary>
     <div class="code-content">
+      <button
+        class="button mini copy-button"
+        onclick={copyToClipboard}
+        aria-label={copied ? "Copied!" : "Copy code to clipboard"}
+      >
+        {#if copied}
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Copied!</span>
+        {:else}
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+            ></path>
+          </svg>
+          <span>Copy</span>
+        {/if}
+      </button>
       {#if effectiveLanguage === "svelte"}
         <HighlightSvelte {code} />
       {:else}
@@ -226,6 +285,7 @@
   }
 
   .code-content {
+    position: relative;
     padding: var(--pad-l);
     overflow-x: auto;
     font-family:
@@ -243,5 +303,12 @@
 
   .code-content :global(code) {
     font-family: inherit;
+  }
+
+  .copy-button {
+    position: absolute;
+    top: var(--pad-s);
+    right: var(--pad-s);
+    z-index: 1;
   }
 </style>
